@@ -50,7 +50,8 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - conexiunea la internet.            **Functional**
 - crearea unei interfete minimaliste. **Nonfunctional**
 - adapatarea aplicatiei atat pe mobil cat si pe desktop. **Nonfunctional**
-
+- accesarea sistemului prin HTTP  **Functional**
+- implementarea serverului prin tehnologia MQTT   **Functional**
 
 
 
