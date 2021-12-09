@@ -1,15 +1,15 @@
-Sensor - continously relays information
-Gadget - actionable/toggleable; can receive commands and send status 
+- **Sensor** - continously relays information
+- **Gadget** - actionable/toggleable; can receive commands and send status 
 
-Gadget's MQTT API:
-    /update
+#### Gadget's MQTT API:
+```
+/update
         {"status":<int>} meaning depends on the gadget type; or something else
         - the gadget publishes its internal value
-
-    /set
+/set
         {"status":<int>}
-    /sync
+/sync
         Triggers a resync
-
-Sensor's MQTT API:
+```
+#### Sensor's MQTT API:
     {"value":<int>} or other format
