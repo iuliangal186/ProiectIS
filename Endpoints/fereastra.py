@@ -3,8 +3,7 @@ from flask import (
 )
 from flask_mqtt import Mqtt
 from db import get_db
-from tools import root_topic
-from app import get_mqtt_queue,mqtt
+from app import get_mqtt_queue,mqtt,root_topic
 
 bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
 gadget_topic="fereastra/"
