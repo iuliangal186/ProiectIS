@@ -45,18 +45,17 @@ def on_message(client,userdata,msg):
     print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
     if "/sync" in msg.topic:
-        msg=json.dumps({"status":current_state})
+        msg=json.dumps({"state":current_state})
         topic=root_topic+"update"
         publish(topic,msg)
 
     if "/set":
-        new_value=msg.payload.decode()
-        current_state=new_value["status"]
+        json_msg=json.loads(msg.payload.decode())
+        current_state=json_msg["state"]
 
-        msg=json.dumps({"status":current_state})
+        msg=json.dumps({"state":current_state})
         topic=root_topic+"update"
         publish(topic,msg)
-
 
 
 
@@ -83,8 +82,8 @@ def run_gadget():
     while True:
         current_state=int(input("Noua valoare: "))
 
-        msg=json.dumps({"status":current_state})
-        topic=root_topic+"status"
+        msg=json.dumps({"state":current_state})
+        topic=root_topic+"update"
         publish(topic,msg)
 
 
