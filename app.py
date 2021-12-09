@@ -7,7 +7,6 @@ import random
 import time
 import db
 
-from tools import root_topic
 from Endpoints import fereastra
 
 
