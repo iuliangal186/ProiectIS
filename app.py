@@ -1,11 +1,12 @@
 from flask import Flask
 from flask_mqtt import Mqtt
 from threading import Thread
-import collections
 import threading
 import random
 import time
+import sys
 import db
+from common import get_mqtt_queue
 
 from Endpoints import fereastra
 
@@ -20,13 +21,6 @@ app.config['MQTT_KEEPALIVE'] = 5  # set the time interval for sending a ping to 
 app.config['MQTT_TLS_ENABLED'] = False  # set TLS to disabled for testing purposes
 http_port="42178"
 mqtt=Mqtt(app)
-
-
-
-# Queue used for storing mqtt messages and sent them
-# Format: [ (<sub_topic>,<command>),(<topic>,<command>) ]
-# Subtopic means that the root topic "sera" must not be specified
-commands_queue=collections.deque([])
 
 
 @app.route("/")
@@ -50,14 +44,13 @@ def mqtt_on_message(client,userdata,msg):
 
 # Register extensions to the endpoints
 def register_endpoints():
-    global app
+
     app.register_blueprint(fereastra.bp)
 
 def get_mqtt_client():
     return mqtt
 
-def get_mqtt_queue():
-    return commands_queue
+
 
 def subscribe_to_topics():
     mqtt.subscribe(root_topic+"fereastra/update")
@@ -74,16 +67,18 @@ def run_http_server():
     # Overstep this incredible setup and just run the server
     app.run("localhost",http_port)
 
-def run_mqtt_server():
-    def mqtt_message_pump():
-        while True:
-            if len(commands_queue)==0:
-                continue
-            next_message=commands_queue.popleft()
-            mqtt.publish(root_topic+next_message[0],next_message[1])
+def mqtt_message_pump():
+    global mqqt_commands_queue
+    while True:
+        if len(get_mqtt_queue())==0:
+            time.sleep(1)
+            continue
+        next_message=get_mqtt_queue().popleft()
+        mqtt.publish(root_topic+next_message[0],next_message[1])
 
+def run_mqtt_server():
     thread=Thread(target=mqtt_message_pump)
-    thread.daemon=True
+    #thread.daemon=True
     thread.start()
 
 def main():
@@ -93,5 +88,11 @@ def main():
 
 
 if __name__=="__main__":
-    main()
+    if len(sys.argv)>1:
+        if "help" in sys.argv[1]:
+            print("Commands: [init-db]")
+        else:
+            db.init_db_command(app)
+    else:
+        main()
 
