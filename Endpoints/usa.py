@@ -9,7 +9,7 @@ from app import mqtt,app,root_topic
 from common import get_mqtt_queue
 
 
-bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
+bp = Blueprint("usa", __name__, url_prefix="/usa")
 gadget_topic="fereastra/"
 
 @bp.route("/",methods=["POST"])
@@ -34,7 +34,7 @@ def fereastra_handler_get():
     # Obviously! This is a major sql injection bug. Still researching how to fix it in python
     last_event=db.execute(
         f"SELECT * FROM events \
-        WHERE event_location='WINDOW' AND id>{last_event_id} \
+        WHERE event_location='DOOR' AND id>{last_event_id} \
         ORDER BY timestamp DESC"
     ).fetchone()
 
@@ -70,5 +70,5 @@ def mqtt_on_message(client,userdata,msg):
 
     # Save received state
     db=get_db()
-    db.execute(f"INSERT INTO events(event_location,state) VALUES ('WINDOW',{json_msg['state']})")
+    db.execute(f"INSERT INTO events(event_location,state) VALUES ('DOOR',{json_msg['state']})")
     db.commit()
