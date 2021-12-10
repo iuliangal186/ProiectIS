@@ -10,7 +10,7 @@ from common import get_mqtt_queue
 
 
 app=Flask(__name__)
-root_topic="/sera/"
+root_topic="/greenhouse/"
 app.config['MQTT_BROKER_URL'] = 'broker.emqx.io'  # use the free broker from HIVEMQ
 app.config['MQTT_BROKER_PORT'] = 1883  # default port for non-tls connection
 app.config['MQTT_USERNAME'] = 'emqx'  # set the username here if you need authentication for the broker
@@ -50,7 +50,8 @@ def register_endpoints():
     app.register_blueprint(usa.bp)
 
 def subscribe_to_topics():
-    mqtt.subscribe(root_topic+"fereastra/update")
+    mqtt.subscribe(root_topic+"window/update")
+    mqtt.subscribe(root_topic+"door/update")
 
 def get_mqtt_client():
     return mqtt

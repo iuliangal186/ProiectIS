@@ -13,7 +13,7 @@ bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
 gadget_topic="fereastra/"
 
 @bp.route("/",methods=["POST"])
-def fereastra_handler_post():
+def handler_post():
     state=int(request.form['state'])
     
     get_mqtt_queue().append((gadget_topic+"set",json.dumps(
@@ -26,7 +26,7 @@ def fereastra_handler_post():
 
 
 @bp.route("/",methods=["GET"])
-def fereastra_handler_get():
+def handler_get():
     db=get_db()
     
     last_event_id=int(request.args["last_id"])

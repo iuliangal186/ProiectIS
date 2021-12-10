@@ -7,7 +7,7 @@ import time
 client=None
 broker = 'broker.emqx.io'
 port = 1883
-root_topic ="/sera/fereastra/"
+root_topic ="/greenhouse/door/"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'emqx'
 password = 'public'
@@ -57,15 +57,15 @@ def on_message(client,userdata,msg):
 
 
 
+
 def connect_mqtt():
-    global client
+    new_mqtt_client = mqtt_client.Client(client_id)
+    new_mqtt_client.username_pw_set(username, password)
+    new_mqtt_client.on_connect = on_connect
+    new_mqtt_client.on_message=on_message
 
-    client = mqtt_client.Client(client_id)
-    client.username_pw_set(username, password)
-    client.on_connect = on_connect
-    client.on_message=on_message
-
-    client.connect(broker, port)
+    new_mqtt_client.connect(broker, port)
+    return new_mqtt_client
 
 # Method which impersonates the gadget and send values form its side
 def run_gadget():
@@ -88,7 +88,11 @@ def run_gadget():
 def run():
     global client
 
-    connect_mqtt()
+    client=connect_mqtt()
+    if client is None:
+        print("Sensor failed")
+        return
+
     client.loop_start()
     run_gadget()
 

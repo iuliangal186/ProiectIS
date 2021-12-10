@@ -10,10 +10,10 @@ from common import get_mqtt_queue
 
 
 bp = Blueprint("usa", __name__, url_prefix="/usa")
-gadget_topic="fereastra/"
+gadget_topic="window/"
 
 @bp.route("/",methods=["POST"])
-def fereastra_handler_post():
+def handler_post():
     state=int(request.form['state'])
     
     get_mqtt_queue().append((gadget_topic+"set",json.dumps(
@@ -26,7 +26,7 @@ def fereastra_handler_post():
 
 
 @bp.route("/",methods=["GET"])
-def fereastra_handler_get():
+def handler_get():
     db=get_db()
     
     last_event_id=int(request.args["last_id"])
@@ -64,7 +64,7 @@ def mqtt_on_message(client,userdata,msg):
         return
     if not "update" in msg.topic:
         return
-    print(f"Fereastra: Received {msg.payload.decode()} from {msg.topic} topic")
+    print(f"Usa: Received {msg.payload.decode()} from {msg.topic} topic")
 
     json_msg=json.loads(msg.payload.decode())
 
