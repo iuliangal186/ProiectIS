@@ -36,22 +36,20 @@ def mqtt_on_connect(client, userdata, flags, rc):
     else:
         print("Failed to connect, return code %d\n", rc)
 
-@mqtt.on_message()
-def mqtt_on_message(client,userdata,msg):
-    print(f"Received {msg.payload.decode()} from {msg.topic} topic")
-
 
 # Register extensions to the endpoints
 def register_endpoints():
     # Python is completely crippled by the circular dependencies
     # Define dependecies here locally as we only need this single variable bp
-    from Endpoints import fereastra,usa
+    from Endpoints import fereastra,usa,temperature
     app.register_blueprint(fereastra.bp)
     app.register_blueprint(usa.bp)
+    app.register_blueprint(temperature.bp)
 
 def subscribe_to_topics():
     mqtt.subscribe(root_topic+"window/update")
     mqtt.subscribe(root_topic+"door/update")
+    mqtt.subscribe(root_topic+"temperature")
 
 def get_mqtt_client():
     return mqtt
