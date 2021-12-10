@@ -5,17 +5,15 @@ import time
 
 # Client for simulating all sensors: light, humidity, temperature
 
-sensor_topics=["temperatura","lumina","umiditate"]
+sensor_topics=["temperature","light","humidity"]
 client=None
 broker = 'broker.emqx.io'
 port = 1883
-root_topic ="/greenhouse/temperature"
+root_topic ="/greenhouse/"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'emqx'
 password = 'public'
 
-# Sensors's current value
-current_value=0
 
 def publish(topic,msg):
     global client
@@ -42,18 +40,20 @@ def connect_mqtt():
     return new_mqtt_client
 
 # Method which impersonates the gadget and send values form its side
-def run_sensor():
+def run_sensors():
     global client
 
     # Wait for a connection
     time.sleep(2)
 
     while True:
-        current_value=random.randint(0,50)
-        print("Current temperature: ",current_value)
+        for sensor in sensor_topics:
+            sensor_value=random.randint(0,50)
+            print(f"Current {sensor} value: ",sensor_value)
 
-        msg=json.dumps({"value":current_value})
-        publish(root_topic,msg)
+            topic=root_topic+sensor
+            msg=json.dumps({"value":sensor_value})
+            publish(topic,msg)
 
         time.sleep(5)
 
@@ -63,11 +63,11 @@ def run():
 
     client=connect_mqtt()
     if client is None:
-        print("Sensor failed")
+        print("Sensors failed")
         return
 
     client.loop_start()
-    run_sensor()
+    run_sensors()
 
 if __name__=='__main__':
     run()
