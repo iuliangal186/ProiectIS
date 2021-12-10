@@ -10,13 +10,13 @@ from common import get_mqtt_queue
 
 
 bp = Blueprint("usa", __name__, url_prefix="/usa")
-gadget_topic="door/"
+gadget_root_topic="door/"
 
 @bp.route("/",methods=["POST"])
 def handler_post():
     state=int(request.form['state'])
     
-    get_mqtt_queue().append((gadget_topic+"set",json.dumps(
+    get_mqtt_queue().append((gadget_root_topic+"set",json.dumps(
         {"state":state}
     )))
     
@@ -41,7 +41,7 @@ def handler_get():
     # No new event was found so trigger a new one
     if last_event is None:
         # Signal the gadget to resend its state
-        get_mqtt_queue().append((gadget_topic+"sync",""))
+        get_mqtt_queue().append((gadget_root_topic+"sync",""))
 
         return jsonify({
             "status":"There are no new events registered"
@@ -60,11 +60,12 @@ def handler_get():
 @mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
     app.app_context().push()
-    if not root_topic+gadget_topic in msg.topic:
+    
+    gadget_topic=root_topic+gadget_root_topic+"update"
+    if not gadget_topic==msg.topic:
         return
-    if not "update" in msg.topic:
-        return
-    print(f"Usa: Received {msg.payload.decode()} from {msg.topic} topic")
+
+    print(f"Door: received {msg.payload.decode()} from {msg.topic} topic")
 
     json_msg=json.loads(msg.payload.decode())
 

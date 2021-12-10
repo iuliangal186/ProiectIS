@@ -9,21 +9,10 @@ from app import mqtt,app,root_topic
 from common import get_mqtt_queue
 
 
-bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
-gadget_root_topic="fereastra/"
+bp = Blueprint("temperatura", __name__, url_prefix="/temperatura")
+sensor_root_topic="temperature"
 
-@bp.route("/",methods=["POST"])
-def handler_post():
-    state=int(request.form['state'])
-    
-    get_mqtt_queue().append((gadget_root_topic+"set",json.dumps(
-        {"state":state}
-    )))
-    
-    return jsonify({
-        "status":"Command was queued"
-    })
-
+# No POST handler because you can only read the temperature. Perhaps make it adjustable?
 
 @bp.route("/",methods=["GET"])
 def handler_get():
@@ -33,26 +22,22 @@ def handler_get():
 
     # Obviously! This is a major sql injection bug. Still researching how to fix it in python
     last_event=db.execute(
-        f"SELECT * FROM events \
-        WHERE event_location='WINDOW' AND id>{last_event_id} \
+        f"SELECT * FROM temperature \
         ORDER BY timestamp DESC"
     ).fetchone()
 
     # No new event was found so trigger a new one
     if last_event is None:
-        # Signal the gadget to resend its state
-        get_mqtt_queue().append((gadget_root_topic+"sync",""))
-
         return jsonify({
             "status":"There are no new events registered"
         })
 
     return jsonify({
-        "status":"Event succesfully retrieved",
+        "status":"Sensor succesfully read",
         "data":{
             "id":last_event["id"],
             "timestamp":last_event["timestamp"],
-            "state":"CLOSED" if last_event["state"]==0 else "OPENED" 
+            "value":last_event["value"]
         }
     })
 
@@ -60,16 +45,16 @@ def handler_get():
 @mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
     app.app_context().push()
-    
-    gadget_topic=root_topic+gadget_root_topic+"update"
-    if not gadget_topic==msg.topic:
+
+    sensor_topic=root_topic+sensor_root_topic
+    if not sensor_topic==msg.topic:
         return
-    
-    print(f"Window: received {msg.payload.decode()} from {msg.topic} topic")
+
+    print(f"Temperature: received {msg.payload.decode()} from {msg.topic} topic")
 
     json_msg=json.loads(msg.payload.decode())
 
     # Save received state
     db=get_db()
-    db.execute(f"INSERT INTO events(event_location,state) VALUES ('WINDOW',{json_msg['state']})")
+    db.execute(f"INSERT INTO temperature(value) VALUES ({json_msg['value']})")
     db.commit()
