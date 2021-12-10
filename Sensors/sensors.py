@@ -4,11 +4,12 @@ import json
 import time
 
 # Client for simulating all sensors: light, humidity, temperature
+
 sensor_topics=["temperatura","lumina","umiditate"]
 client=None
 broker = 'broker.emqx.io'
 port = 1883
-root_topic ="/sera/temperatura"
+root_topic ="/greenhouse/temperature"
 client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'emqx'
 password = 'public'

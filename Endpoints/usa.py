@@ -10,7 +10,7 @@ from common import get_mqtt_queue
 
 
 bp = Blueprint("usa", __name__, url_prefix="/usa")
-gadget_topic="window/"
+gadget_topic="door/"
 
 @bp.route("/",methods=["POST"])
 def handler_post():
