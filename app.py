@@ -8,8 +8,6 @@ import sys
 import db
 from common import get_mqtt_queue
 
-from Endpoints import fereastra
-
 
 app=Flask(__name__)
 root_topic="/sera/"
@@ -42,19 +40,20 @@ def mqtt_on_connect(client, userdata, flags, rc):
 def mqtt_on_message(client,userdata,msg):
     print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
+
 # Register extensions to the endpoints
 def register_endpoints():
-
+    # Python is completely crippled by the circular dependencies
+    # Define dependecies here locally as we only need this single variable bp
+    from Endpoints import fereastra,usa
     app.register_blueprint(fereastra.bp)
-
-def get_mqtt_client():
-    return mqtt
-
-
+    app.register_blueprint(usa.bp)
 
 def subscribe_to_topics():
     mqtt.subscribe(root_topic+"fereastra/update")
 
+def get_mqtt_client():
+    return mqtt
 
 
 def run_http_server():
@@ -78,7 +77,7 @@ def mqtt_message_pump():
 
 def run_mqtt_server():
     thread=Thread(target=mqtt_message_pump)
-    #thread.daemon=True
+    thread.daemon=True
     thread.start()
 
 def main():

@@ -4,8 +4,6 @@ import json
 import time
 
 
-# Stupid library starts nodejs in the background with no notice
-# Block outbound
 client=None
 broker = 'broker.emqx.io'
 port = 1883
@@ -45,17 +43,17 @@ def on_message(client,userdata,msg):
     print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
     if "/sync" in msg.topic:
-        msg=json.dumps({"state":current_state})
+        result_msg=json.dumps({"state":current_state})
         topic=root_topic+"update"
-        publish(topic,msg)
+        publish(topic,result_msg)
 
-    if "/set":
+    if "/set" in msg.topic:
         json_msg=json.loads(msg.payload.decode())
         current_state=json_msg["state"]
 
-        msg=json.dumps({"state":current_state})
+        result_msg=json.dumps({"state":current_state})
         topic=root_topic+"update"
-        publish(topic,msg)
+        publish(topic,result_msg)
 
 
 
