@@ -25,6 +25,9 @@ def mqtt_on_connect(client, userdata, flags, rc):
 
 @mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
+    # Needed in order for the database to be registeres and be usable withing the components
+    server_http.get_app().app_context().push()
+
     print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
     for callback in mqtt_message_callbacks:

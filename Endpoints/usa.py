@@ -57,9 +57,7 @@ def handler_get():
     })
 
 
-def mqtt_on_message(client,userdata,msg):
-    server_http.get_app().app_context().push()
-    
+def mqtt_on_message(client,userdata,msg):    
     gadget_topic=root_topic+gadget_root_topic+"update"
     if not gadget_topic==msg.topic:
         return
