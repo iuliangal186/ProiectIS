@@ -42,9 +42,9 @@ def handler_get():
 
 @server_mqtt.mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
-    server_http.app_context().push()
+    server_http.get_app().app_context().push()
 
-    sensor_topic=server_http.root_topic+sensor_root_topic
+    sensor_topic=root_topic+sensor_root_topic
     if not sensor_topic==msg.topic:
         return
 
