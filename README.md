@@ -1,6 +1,14 @@
 **Document de analiză a cerințelor clientului**
 
 **Sera Smart – Echipa 17**
+## Cum rulez programul:
+Mai intai se creeaza baza de date:
+- ``py -3.7 app.py init-db``
+- ``python app.py init-db``
+
+Se executa prin comenzile:
+- ``py -3.7 app.py``
+- ``python app.py``
 
 ## Scopul aplicației: 
 *Aplicatia are ca scop modificarea serei traditionale prin automatizarea acesteia, folosindu-se de date de natura variabila pe care le preia din mediul inconjurator (lumina, temperatura, umiditate etc.). Aceasta aplicatie poate fi rulata si parametrii pot fi modificati de catre utilizator remote prin intermediul telefonului/desktopului si va oferi un feedback in timp real a conditiilor din sera.*
