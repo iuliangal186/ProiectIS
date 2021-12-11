@@ -12,6 +12,7 @@ mqqt_commands_queue=deque([])
 
 mqtt=Mqtt(server_http.get_app())
 
+
 @mqtt.on_connect()
 def mqtt_on_connect(client, userdata, flags, rc):
     if rc == 0:

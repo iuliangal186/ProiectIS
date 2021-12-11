@@ -26,7 +26,7 @@ def hello_world():
 def register_endpoints():
     # Python is completely crippled by the circular dependencies
     # Define dependecies here locally as we only need this single variable bp
-    from Endpoints import fereastra,usa,temperature
+    from Endpoints import temperature,fereastra,usa
     app.register_blueprint(fereastra.bp)
     app.register_blueprint(usa.bp)
     app.register_blueprint(temperature.bp)
@@ -43,6 +43,8 @@ def run_http_server():
     # Overstep this incredible setup and just run the server
     app.run("localhost",http_port)
 
+def test():
+    import server_mqtt
 
 def init_http():
     register_endpoints()
