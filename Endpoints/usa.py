@@ -5,18 +5,18 @@ from flask_mqtt import Mqtt
 import json
 
 from db import get_db
-from app import mqtt,app,root_topic
-from common import get_mqtt_queue
-
+from common import root_topic
+import server_mqtt
+import server_http
 
 bp = Blueprint("usa", __name__, url_prefix="/usa")
-gadget_topic="fereastra/"
+gadget_root_topic="door/"
 
 @bp.route("/",methods=["POST"])
-def fereastra_handler_post():
+def handler_post():
     state=int(request.form['state'])
     
-    get_mqtt_queue().append((gadget_topic+"set",json.dumps(
+    server_mqtt.get_mqtt_queue().append((gadget_root_topic+"set",json.dumps(
         {"state":state}
     )))
     
@@ -26,7 +26,7 @@ def fereastra_handler_post():
 
 
 @bp.route("/",methods=["GET"])
-def fereastra_handler_get():
+def handler_get():
     db=get_db()
     
     last_event_id=int(request.args["last_id"])
@@ -41,7 +41,7 @@ def fereastra_handler_get():
     # No new event was found so trigger a new one
     if last_event is None:
         # Signal the gadget to resend its state
-        get_mqtt_queue().append((gadget_topic+"sync",""))
+        server_mqtt.get_mqtt_queue().append((gadget_root_topic+"sync",""))
 
         return jsonify({
             "status":"There are no new events registered"
@@ -57,14 +57,12 @@ def fereastra_handler_get():
     })
 
 
-@mqtt.on_message()
-def mqtt_on_message(client,userdata,msg):
-    app.app_context().push()
-    if not root_topic+gadget_topic in msg.topic:
+def mqtt_on_message(client,userdata,msg):    
+    gadget_topic=root_topic+gadget_root_topic+"update"
+    if not gadget_topic==msg.topic:
         return
-    if not "update" in msg.topic:
-        return
-    print(f"Fereastra: Received {msg.payload.decode()} from {msg.topic} topic")
+
+    print(f"Door: received {msg.payload.decode()} from {msg.topic} topic")
 
     json_msg=json.loads(msg.payload.decode())
 
