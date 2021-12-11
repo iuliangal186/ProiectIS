@@ -40,7 +40,6 @@ def handler_get():
     })
 
 
-@server_mqtt.mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
     server_http.get_app().app_context().push()
 

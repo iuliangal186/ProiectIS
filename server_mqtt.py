@@ -11,7 +11,7 @@ import server_http
 mqqt_commands_queue=deque([])
 
 mqtt=Mqtt(server_http.get_app())
-
+mqtt_message_callbacks=[]
 
 @mqtt.on_connect()
 def mqtt_on_connect(client, userdata, flags, rc):
@@ -27,11 +27,20 @@ def mqtt_on_connect(client, userdata, flags, rc):
 def mqtt_on_message(client,userdata,msg):
     print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
+    for callback in mqtt_message_callbacks:
+        callback(client,userdata,msg)
+
 def subscribe_to_topics():
     mqtt.subscribe(root_topic+"window/update")
     mqtt.subscribe(root_topic+"door/update")
     mqtt.subscribe(root_topic+"temperature")
 
+
+def register_endpoints():
+    from Endpoints import fereastra,usa,temperature
+    mqtt_message_callbacks.append(fereastra.mqtt_on_message)
+    mqtt_message_callbacks.append(usa.mqtt_on_message)
+    mqtt_message_callbacks.append(temperature.mqtt_on_message)
 
 def mqtt_message_pump():
     global mqqt_commands_queue
@@ -48,8 +57,9 @@ def run_mqtt_server():
     thread.start()
 
 
+
 def init_mqtt():
-    pass
+    register_endpoints()
 
 
 def get_mqtt_client():

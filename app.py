@@ -20,7 +20,6 @@ def main():
     server_http.init_http()
     server_mqtt.init_mqtt()
     
-    server_http.test()
     server_mqtt.run_mqtt_server()
     server_http.run_http_server()
 

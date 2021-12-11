@@ -43,8 +43,6 @@ def run_http_server():
     # Overstep this incredible setup and just run the server
     app.run("localhost",http_port)
 
-def test():
-    import server_mqtt
 
 def init_http():
     register_endpoints()
