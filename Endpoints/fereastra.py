@@ -5,18 +5,18 @@ from flask_mqtt import Mqtt
 import json
 
 from db import get_db
-from app import mqtt,app,root_topic
-from common import get_mqtt_queue
-
+from common import root_topic
+import server_mqtt
+import server_http
 
 bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
-gadget_root_topic="fereastra/"
+gadget_root_topic="window/"
 
 @bp.route("/",methods=["POST"])
 def handler_post():
     state=int(request.form['state'])
     
-    get_mqtt_queue().append((gadget_root_topic+"set",json.dumps(
+    server_mqtt.get_mqtt_queue().append((gadget_root_topic+"set",json.dumps(
         {"state":state}
     )))
     
@@ -41,7 +41,7 @@ def handler_get():
     # No new event was found so trigger a new one
     if last_event is None:
         # Signal the gadget to resend its state
-        get_mqtt_queue().append((gadget_root_topic+"sync",""))
+        server_mqtt.get_mqtt_queue().append((gadget_root_topic+"sync",""))
 
         return jsonify({
             "status":"There are no new events registered"
@@ -57,11 +57,11 @@ def handler_get():
     })
 
 
-@mqtt.on_message()
+@server_mqtt.mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
-    app.app_context().push()
+    server_http.app.app_context().push()
     
-    gadget_topic=root_topic+gadget_root_topic+"update"
+    gadget_topic=server_http.root_topic+gadget_root_topic+"update"
     if not gadget_topic==msg.topic:
         return
     

@@ -5,9 +5,9 @@ from flask_mqtt import Mqtt
 import json
 
 from db import get_db
-from app import mqtt,app,root_topic
-from common import get_mqtt_queue
-
+from common import root_topic
+import server_mqtt
+import server_http
 
 bp = Blueprint("temperatura", __name__, url_prefix="/temperatura")
 sensor_root_topic="temperature"
@@ -17,8 +17,6 @@ sensor_root_topic="temperature"
 @bp.route("/",methods=["GET"])
 def handler_get():
     db=get_db()
-    
-    last_event_id=int(request.args["last_id"])
 
     # Obviously! This is a major sql injection bug. Still researching how to fix it in python
     last_event=db.execute(
@@ -42,11 +40,11 @@ def handler_get():
     })
 
 
-@mqtt.on_message()
+@server_mqtt.mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
-    app.app_context().push()
+    server_http.app_context().push()
 
-    sensor_topic=root_topic+sensor_root_topic
+    sensor_topic=server_http.root_topic+sensor_root_topic
     if not sensor_topic==msg.topic:
         return
 
