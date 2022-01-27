@@ -17,6 +17,10 @@ import server_http
 import server_mqtt
 
 def main():
+    # We need this pattern of initialization because python sucks and the importing of libraries is an offense to logic
+    # Precisely we import the http module inside mqqt server as we need acces to the app context - so you cannot load http and mqtt together but must separate them
+    # although nothing actually prevents this to be implemented and is often done in C++. Here the only issue is that calling 'import B' from module A will start executing that module
+    # and mark the previous module A as NOT yet loaded and thus if it finds next an 'import A' it WILL load that module again. 
     server_http.init_http()
     server_mqtt.init_mqtt()
     
