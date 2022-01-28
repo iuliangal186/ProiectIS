@@ -5,7 +5,7 @@ import time
 
 # Client for simulating all sensors: light, humidity, temperature
 
-sensor_topics=["temperature","light","humidity"]
+sensor_topics=["temperature","luminosity","humidity"]
 client=None
 broker = 'broker.emqx.io'
 port = 1883

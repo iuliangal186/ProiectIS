@@ -37,13 +37,17 @@ def subscribe_to_topics():
     mqtt.subscribe(root_topic+"window/update")
     mqtt.subscribe(root_topic+"door/update")
     mqtt.subscribe(root_topic+"temperature")
+    mqtt.subscribe(root_topic+"luminosity")
+    mqtt.subscribe(root_topic+"humidity")
 
 
 def register_endpoints():
-    from Endpoints import fereastra,usa,temperatura
+    from Endpoints import fereastra,usa,temperatura,lumina,umiditate
     mqtt_message_callbacks.append(fereastra.mqtt_on_message)
     mqtt_message_callbacks.append(usa.mqtt_on_message)
     mqtt_message_callbacks.append(temperatura.mqtt_on_message)
+    mqtt_message_callbacks.append(lumina.mqtt_on_message)
+    mqtt_message_callbacks.append(umiditate.mqtt_on_message)
 
 def mqtt_message_pump():
     global mqqt_commands_queue

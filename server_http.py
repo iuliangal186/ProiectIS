@@ -26,10 +26,12 @@ def hello_world():
 def register_endpoints():
     # Python is completely crippled by the circular dependencies
     # Define dependecies here locally as we only need this single variable bp
-    from Endpoints import fereastra,usa,temperatura
+    from Endpoints import fereastra,usa,temperatura,lumina,umiditate
     app.register_blueprint(fereastra.bp)
     app.register_blueprint(usa.bp)
     app.register_blueprint(temperatura.bp)
+    app.register_blueprint(lumina.bp)
+    app.register_blueprint(umiditate.bp)
 
 
 
