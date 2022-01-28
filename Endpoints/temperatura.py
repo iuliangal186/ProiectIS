@@ -42,16 +42,16 @@ def handler_get():
 @bp.route("/statistics",methods=["GET"])
 def handler_get_history():
     db=get_db()
-    hours_time_period=int(request.args["time_period"])
+    hours_time_period=float(request.args["time_period"])
 
     sample_points=db.execute(
         f"SELECT value FROM temperature \
-        WHERE (julianday('now')-julianday(timestamp))*24>{hours_time_period}\
+        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
         ORDER BY timestamp ASC"
     ).fetchall()
     average_point=db.execute(
         f"SELECT AVG(value) FROM temperature \
-        WHERE (julianday('now')-julianday(timestamp))*24>{hours_time_period}\
+        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
         ORDER BY timestamp ASC;"
     ).fetchone()
 
