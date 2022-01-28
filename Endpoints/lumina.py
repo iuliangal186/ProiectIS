@@ -46,12 +46,12 @@ def handler_get_history():
 
     sample_points=db.execute(
         f"SELECT value FROM luminosity \
-        WHERE (julianday('now')-julianday(timestamp))*24>{hours_time_period}\
+        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
         ORDER BY timestamp ASC"
     ).fetchall()
     average_point=db.execute(
         f"SELECT AVG(value) FROM luminosity \
-        WHERE (julianday('now')-julianday(timestamp))*24>{hours_time_period}\
+        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
         ORDER BY timestamp ASC;"
     ).fetchone()
 
