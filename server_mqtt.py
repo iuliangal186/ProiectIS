@@ -25,10 +25,10 @@ def mqtt_on_connect(client, userdata, flags, rc):
 
 @mqtt.on_message()
 def mqtt_on_message(client,userdata,msg):
-    # Needed in order for the database to be registeres and be usable withing the components
+    # Needed in order for the database to be registered and be usable withing the components
     server_http.get_app().app_context().push()
 
-    print(f"Received {msg.payload.decode()} from {msg.topic} topic")
+    #print(f"Received {msg.payload.decode()} from {msg.topic} topic")
 
     for callback in mqtt_message_callbacks:
         callback(client,userdata,msg)
@@ -40,10 +40,10 @@ def subscribe_to_topics():
 
 
 def register_endpoints():
-    from Endpoints import fereastra,usa,temperature
+    from Endpoints import fereastra,usa,temperatura
     mqtt_message_callbacks.append(fereastra.mqtt_on_message)
     mqtt_message_callbacks.append(usa.mqtt_on_message)
-    mqtt_message_callbacks.append(temperature.mqtt_on_message)
+    mqtt_message_callbacks.append(temperatura.mqtt_on_message)
 
 def mqtt_message_pump():
     global mqqt_commands_queue
