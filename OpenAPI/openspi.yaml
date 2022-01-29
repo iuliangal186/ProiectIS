@@ -122,6 +122,12 @@ paths:
                 
     post:
       description: Schimba starea usii 
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GadgetWrite'
       responses:
         "200":
           description: OK
@@ -132,6 +138,52 @@ paths:
                 
                 
   /temperatura:
+    get:
+      description: Ia valoarea curenta a sensorului 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorRead'
+                
+                
+    post:
+      description: Compileaza un istoric
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorStats'
+                
+                
+  /lumina:
+    get:
+      description: Ia valoarea curenta a sensorului 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorRead'
+                
+                
+    post:
+      description: Compileaza un istoric
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorStats'
+                
+                
+  /umiditate:
     get:
       description: Ia valoarea curenta a sensorului 
       responses:
