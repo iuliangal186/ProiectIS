@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 from flask_mqtt import Mqtt
 from threading import Thread
 import threading
@@ -23,9 +23,11 @@ def main_route():
 @app.route("/docs")
 def docs_route():
     return render_template("/OpenAPI/index.html", title = 'Main page')
-@app.route("/swagger.yaml")
+@app.route("/swagger.json")
 def swagger_route():
-    return render_template("/OpenAPI/swagger.yaml", title = 'Swagger')
+    return render_template("/OpenAPI/swagger.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
+    # response.headers["Content-Type"] = "text/x-yaml"
+    # return response
 
 
 
