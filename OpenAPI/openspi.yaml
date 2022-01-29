@@ -203,4 +203,4 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/SensorStats'
+                $ref: '#/components/schemas/SensorStats' 
