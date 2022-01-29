@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_mqtt import Mqtt
 from threading import Thread
 import threading
@@ -18,8 +18,8 @@ http_port="42178"
 
 
 @app.route("/")
-def hello_world():
-    return "Welcome to the smart GreenHouse !"
+def main_route():
+    return render_template("/OpenAPI/index.html", title = 'Main page')
 
 
 # Register extensions to the endpoints
