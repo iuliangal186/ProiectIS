@@ -3,6 +3,29 @@ info:
   title: SeraSmart
   version: 1.0.0
   
+components:
+  # Reusable schemas (data models)
+  schemas:
+    GadgetRead:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            state:
+              type: string
+            timestamp:
+              type: string
+        status:
+          type: string
+        
+    GadgetWrite:
+      type: object
+      properties:
+        status:
+          type: string
   
 paths:
   /fereastra:
@@ -14,19 +37,9 @@ paths:
           content:
             application/json:
               schema: 
-                type: object
-                properties:
-                  data:
-                    type: object
-                    properties:
-                      id:
-                        type: integer
-                      state:
-                        type: string
-                      timestamp:
-                        type: string
-                  status:
-                    type: string
+                $ref: '#/components/schemas/GadgetRead'
+                
+                
     post:
       description: Schimba starea ferestrei 
       responses:
@@ -35,7 +48,4 @@ paths:
           content:
             application/json:
               schema: 
-                type: object
-                properties:
-                  status:
-                    type: string
+                $ref: '#/components/schemas/GadgetWrite'
