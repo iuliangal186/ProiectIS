@@ -6,7 +6,7 @@ info:
 components:
   # Reusable schemas (data models)
   schemas:
-    GadgetRead:
+    GadgetReadResponse:
       type: object
       properties:
         data:
@@ -21,31 +21,134 @@ components:
         status:
           type: string
         
-    GadgetWrite:
+    GadgetWriteResponse:
       type: object
       properties:
         status:
           type: string
+    
+    GadgetWrite:
+      type: object
+      properties:
+        state:
+          type: integer
+    
+    SensorRead:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            timestamp:
+              type: string
+            value:
+              type: number
+        status:
+          type: string
+          
+          
+    SensorStats:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            average:
+              type: number
+            history:
+              type: array
+              items: 
+                type: number
+        status:
+          type: string
+          
   
 paths:
   /fereastra:
     get:
       description: Ia starea ferestrei 
+      parameters:
+        - in: query
+          name: last_id
+          required: true
+          schema:
+            type: integer
+          description: Ultimul id inregistrat
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/GadgetRead'
+                $ref: '#/components/schemas/GadgetReadResponse'
                 
                 
     post:
-      description: Schimba starea ferestrei 
+      description: Schimba starea ferestrei
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/GadgetWrite'
       responses:
         "200":
           description: OK
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/GadgetWrite'
+                $ref: '#/components/schemas/GadgetWriteResponse'
+                
+  /usa:
+    get:
+      description: Ia starea usii 
+      parameters:
+        - in: query
+          name: last_id
+          required: true
+          schema:
+            type: integer
+          description: Ultimul id inregistrat
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/GadgetReadResponse'
+                
+                
+    post:
+      description: Schimba starea usii 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/GadgetWriteResponse'
+                
+                
+  /temperatura:
+    get:
+      description: Ia valoarea curenta a sensorului 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorRead'
+                
+                
+    post:
+      description: Compileaza un istoric
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                $ref: '#/components/schemas/SensorStats'
