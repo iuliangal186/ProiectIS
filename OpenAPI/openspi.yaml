@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: SeraSmart
+  version: 1.0.0
+  
+  
+paths:
+  /fereastra:
+    get:
+      description: Ia starea ferestrei 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      state:
+                        type: string
+                      timestamp:
+                        type: string
+                  status:
+                    type: string
+    post:
+      description: Schimba starea ferestrei 
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema: 
+                type: object
+                properties:
+                  status:
+                    type: string
