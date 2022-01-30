@@ -84,6 +84,10 @@ def run_gadget():
         publish(topic,msg)
 
 
+def stop():
+    global client
+    client.disconnect()
+    
 def run():
     global client
 
@@ -94,6 +98,7 @@ def run():
 
     client.loop_start()
     run_gadget()
+
 
 if __name__=='__main__':
     run()
