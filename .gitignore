@@ -1,3 +1,8 @@
+# Ignore local database to avoid unnecesary pushes/commits
+flaskr.sqlite
+# Do not ignore the unit tests database as that should not be modified and available for tests
+!Unit Tests/flaskr.sqlite
+
 # Gitignore VS COde
 .vscode
 
