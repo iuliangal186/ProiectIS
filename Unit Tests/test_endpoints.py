@@ -17,9 +17,8 @@ import db
 # Un destept ca sa rezolve problema si-a transformat intreaga aplicatie main.py intr-un test.... adica test_main.py
 # Ce o sa faci atunci cand vei vrea sa testezi si mqtt-ul?
 
-@pytest.fixture(scope="session", autouse=True)
+@pytest.fixture(scope="module", autouse=True)
 def client():
-    db_fd, db_path = tempfile.mkstemp()
     import server_http
     
     server_http.get_app().config["TESTING"]=True
@@ -31,12 +30,17 @@ def client():
             db.init_app(app)
         yield client
 
-    os.close(db_fd)
-    os.unlink(db_path)
 
+@pytest.fixture(scope="module", autouse=True)
+def mqtt_server(client):
+    import server_mqtt
+    
+    server_mqtt.init_mqtt()
+    server_mqtt.run_mqtt_server()
 
+    yield server_mqtt.get_mqtt_client()
 
-@pytest.fixture()
+@pytest.fixture(scope="module")
 def mqtt_window():
     import Sensors.gadget_window as gadget_window
 
@@ -45,6 +49,7 @@ def mqtt_window():
     yield mqtt_client
     mqtt_client.disconnect()
 
+    
 
 
 def test_root_endpoint(client):
@@ -152,7 +157,7 @@ def test_sensor_noparam_humidity(client):
 
 
 
-def test_gadget_window(client,mqtt_window):
+def test_gadget_window(client):
     # Test if requesting a large id will result in error
     landing = client.get("/fereastra/?last_id=1000")
     data = json.loads(landing.data.decode())
@@ -169,8 +174,6 @@ def test_gadget_window(client,mqtt_window):
     assert last_event!=None, "There should be some rows in the database"
     last_event_id=last_event[0]
     print(last_event_id)
-    
-    sleep(2)
 
     # Test if a request to the last id generates an no-new-events error
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
@@ -178,8 +181,32 @@ def test_gadget_window(client,mqtt_window):
     assert landing.status_code == 200,"Page should return success"
     assert "There are no new events registered" in data["status"]
 
-    sleep(2)
 
+
+
+
+
+
+
+
+
+
+
+
+########## INTEGRATION TESTING
+# Test if integration with mqtt works
+def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    last_event=db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='WINDOW'"
+    ).fetchone()
+
+    assert last_event!=None, "There should be some rows in the database"
+    last_event_id=last_event[0]
+    print(last_event_id)
+
+    sleep(2)
 
     # Test if the last request triggered a new event
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
