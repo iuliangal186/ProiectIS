@@ -13,7 +13,6 @@ bp = Blueprint("umiditate", __name__, url_prefix="/umiditate")
 sensor_root_topic="humidity"
 
 
-
 @bp.route("/",methods=["GET"])
 def handler_get():
     db=get_db()
