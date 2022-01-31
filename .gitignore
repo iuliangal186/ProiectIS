@@ -1,9 +1,10 @@
+# Ignore local database to avoid unnecesary pushes/commits
+flaskr.sqlite
+# Do not ignore the unit tests database as that should not be modified and available for tests
+!Unit Tests/flaskr.sqlite
+
 # Gitignore VS COde
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
+.vscode
 
 # Local History for Visual Studio Code
 .history/
