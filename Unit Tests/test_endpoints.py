@@ -4,6 +4,7 @@ from tempfile import tempdir
 import tempfile
 from threading import Thread
 import threading
+from time import sleep
 import pytest
 import json
 import sys
@@ -21,8 +22,7 @@ def client():
     db_fd, db_path = tempfile.mkstemp()
     import server_http
     
-    # server_http.get_app().config["TESTING"]=True
-    # server_http.get_app().config["DATABASE"]=db_path
+    server_http.get_app().config["TESTING"]=True
     server_http.init_http()
     app=server_http.get_app()
 
@@ -41,11 +41,9 @@ def mqtt_window():
     import Sensors.gadget_window as gadget_window
 
     # This does not block
-    gadget_window.connect_mqtt()
-
-    yield ()
-
-    gadget_window.stop()
+    mqtt_client=gadget_window.test_mqtt()
+    yield mqtt_client
+    mqtt_client.disconnect()
 
 
 
@@ -154,7 +152,6 @@ def test_sensor_noparam_humidity(client):
 
 
 
-
 def test_gadget_window(client,mqtt_window):
     # Test if requesting a large id will result in error
     landing = client.get("/fereastra/?last_id=1000")
@@ -164,21 +161,28 @@ def test_gadget_window(client,mqtt_window):
     assert "There are no new events registered" in data["status"]
 
     # Test if the values are returned as supposed for a specific id
-    last_event_id=db.get_db().execute(
+    last_event=db.get_db().execute(
         f"SELECT max(id) FROM events \
         WHERE event_location='WINDOW'"
     ).fetchone()
 
-    assert last_event_id!=None, "There should be some rows in the database"
+    assert last_event!=None, "There should be some rows in the database"
+    last_event_id=last_event[0]
+    print(last_event_id)
+    
+    sleep(2)
 
     # Test if a request to the last id generates an no-new-events error
-    landing = client.get(f"/fereastra?last_id={last_event_id}")
+    landing = client.get(f"/fereastra/?last_id={last_event_id}")
     data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
     assert "There are no new events registered" in data["status"]
-    
+
+    sleep(2)
+
+
     # Test if the last request triggered a new event
-    landing = client.get(f"/fereastra?last_id={last_event_id}")
+    landing = client.get(f"/fereastra/?last_id={last_event_id}")
     data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
     assert "Event succesfully retrieved" in data["status"]
