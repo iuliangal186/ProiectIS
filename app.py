@@ -16,7 +16,6 @@ import db
 import server_http
 import server_mqtt
 
-
 def main():
     # We need this pattern of initialization because python sucks and the importing of libraries is an offense to logic
     # Precisely we import the http module inside mqqt server as we need acces to the app context - so you cannot load http and mqtt together but must separate them
