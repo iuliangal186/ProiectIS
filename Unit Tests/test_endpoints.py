@@ -49,7 +49,7 @@ def mqtt_window():
     yield mqtt_client
     mqtt_client.disconnect()
 
-    
+
 
 
 def test_root_endpoint(client):
@@ -162,7 +162,6 @@ def test_gadget_window(client):
     landing = client.get("/fereastra/?last_id=1000")
     data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
-
     assert "There are no new events registered" in data["status"]
 
     # Test if the values are returned as supposed for a specific id
@@ -181,9 +180,28 @@ def test_gadget_window(client):
     assert landing.status_code == 200,"Page should return success"
     assert "There are no new events registered" in data["status"]
 
+def test_gadget_door(client):
+    # Test if requesting a large id will result in error
+    landing = client.get("/usa/?last_id=1000")
+    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200,"Page should return success"
+    assert "There are no new events registered" in data["status"]
 
+    # Test if the values are returned as supposed for a specific id
+    last_event=db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='WINDOW'"
+    ).fetchone()
 
+    assert last_event!=None, "There should be some rows in the database"
+    last_event_id=last_event[0]
+    print(last_event_id)
 
+    # Test if a request to the last id generates an no-new-events error
+    landing = client.get(f"/usa/?last_id={last_event_id}")
+    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200,"Page should return success"
+    assert "There are no new events registered" in data["status"]
 
 
 
@@ -210,6 +228,28 @@ def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
 
     # Test if the last request triggered a new event
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
+    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200,"Page should return success"
+    assert "Event succesfully retrieved" in data["status"]
+    assert data["data"]["id"]>last_event_id
+    assert data["data"]["state"]=="OPENED" or data["data"]["state"]=="CLOSED"
+
+# Test if integration with mqtt works
+def test_gadgetdoor_and_mqtt(client,mqtt_window,mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    last_event=db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='WINDOW'"
+    ).fetchone()
+
+    assert last_event!=None, "There should be some rows in the database"
+    last_event_id=last_event[0]
+    print(last_event_id)
+
+    sleep(2)
+
+    # Test if the last request triggered a new event
+    landing = client.get(f"/usa/?last_id={last_event_id}")
     data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
     assert "Event succesfully retrieved" in data["status"]
