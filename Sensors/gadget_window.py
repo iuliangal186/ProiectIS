@@ -84,6 +84,10 @@ def run_gadget():
         publish(topic,msg)
 
 
+def stop():
+    global client
+    client.disconnect()
+    
 def run():
     global client
 
@@ -94,6 +98,18 @@ def run():
 
     client.loop_start()
     run_gadget()
+
+
+def test_mqtt():
+    global client
+
+    client=connect_mqtt()
+    if client is None:
+        print("Sensor failed")
+        return
+
+    client.loop_start()
+    return client
 
 if __name__=='__main__':
     run()

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request, send_from_directory
 from flask_mqtt import Mqtt
 from threading import Thread
 import threading
@@ -7,7 +7,7 @@ import time
 import sys
 import db
 
-app=Flask(__name__)
+app=Flask(__name__,template_folder="Static")
 app.config['MQTT_BROKER_URL'] = 'broker.emqx.io'  # use the free broker from HIVEMQ
 app.config['MQTT_BROKER_PORT'] = 1883  # default port for non-tls connection
 app.config['MQTT_USERNAME'] = 'emqx'  # set the username here if you need authentication for the broker
@@ -16,10 +16,19 @@ app.config['MQTT_KEEPALIVE'] = 5  # set the time interval for sending a ping to 
 app.config['MQTT_TLS_ENABLED'] = False  # set TLS to disabled for testing purposes
 http_port="42178"
 
-
 @app.route("/")
-def hello_world():
-    return "Welcome to the smart GreenHouse !"
+def main_route():
+    return "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>";
+
+@app.route("/docs")
+def docs_route():
+    return render_template("/OpenAPI/index.html", title = 'Main page')
+@app.route("/swagger.json")
+def swagger_route():
+    return render_template("/OpenAPI/swagger.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
+    # response.headers["Content-Type"] = "text/x-yaml"
+    # return response
+
 
 
 # Register extensions to the endpoints
