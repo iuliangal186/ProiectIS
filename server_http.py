@@ -20,14 +20,19 @@ http_port="42178"
 def main_route():
     return "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>";
 
-@app.route("/docs")
+@app.route("/openapi")
 def docs_route():
     return render_template("/OpenAPI/index.html", title = 'Main page')
-@app.route("/swagger.json")
-def swagger_route():
-    return render_template("/OpenAPI/swagger.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
-    # response.headers["Content-Type"] = "text/x-yaml"
-    # return response
+@app.route("/openapi.json")
+def openapi_route():
+    return render_template("/OpenAPI/openapi.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
+
+@app.route("/asyncapi")
+def docs_route():
+    return render_template("/AsyncAPI/index.html", title = 'Main page')
+@app.route("/asyncapi.json")
+def asyncapi_route():
+    return render_template("/AsyncAPI/asyncapi.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
 
 
 
