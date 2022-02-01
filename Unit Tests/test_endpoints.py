@@ -216,7 +216,17 @@ def test_door_gadget_noparam(client):
     assert landing.status_code == 400,"Page should return bad request"
 
 
+def test_post_temperature(client):
+    request = client.post("/temperatura")
+    assert request.status_code == 405
 
+def test_post_humidity(client):
+    request = client.post("/umiditate")
+    assert request.status_code == 405
+
+def test_post_light(client):
+    request = client.post("/lumina")
+    assert request.status_code == 405
 
 
 
