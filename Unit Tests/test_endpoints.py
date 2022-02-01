@@ -101,6 +101,7 @@ def test_temperature_sensor_noparam(client):
     assert landing.status_code == 400,"Page should return bad request"
 
 
+
 def test_luminosity_sensor_values(client):
     landing = client.get("/lumina/")
     data = json.loads(landing.data.decode())
@@ -195,6 +196,8 @@ def test_window_gadget_noparam(client):
     landing = client.get("/fereastra/")
     assert landing.status_code == 400,"Page should return bad request"
 
+
+
 def test_door_gadget(client):
     # Test if requesting a large id will result in error
     landing = client.get("/usa/?last_id=1000")
@@ -222,6 +225,7 @@ def test_door_gadget_noparam(client):
     # Test if a missing param will result in error
     landing = client.get("/fereastra/")
     assert landing.status_code == 400,"Page should return bad request"
+
 
 
 def test_post_temperature(client):
