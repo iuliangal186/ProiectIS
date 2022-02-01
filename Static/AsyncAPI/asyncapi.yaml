@@ -22,12 +22,41 @@ channels:
       message:
         description: Sets the sensor value
         $ref: '#/components/messages/message_sensor_publish'
+
   /greenhouse/humidity:
     description: Humidity sensor endpoint
     publish:
       message:
         description: Sets the sensor value
         $ref: '#/components/messages/message_sensor_publish'
+
+
+  /greenhouse/window/sync:
+    description: Window gadget endpoint
+    subscribe:
+      message:
+        description: Get the gadget's change-state command
+        $ref: '#/components/messages/message_gadget_subscribe'
+  /greenhouse/window/update:
+    description: Window gadget endpoint
+    publish:
+      message:
+        description: Update the gadget's state
+        $ref: '#/components/messages/message_gadget_publish'
+
+
+  /greenhouse/door/sync:
+    description: Door gadget endpoint
+    subscribe:
+      message:
+        description: Get the gadget's change-state command
+        $ref: '#/components/messages/message_gadget_subscribe'
+  /greenhouse/door/update:
+    description: Door gadget endpoint
+    publish:
+      message:
+        description: Update the gadget's state
+        $ref: '#/components/messages/message_gadget_publish'
 
 components:
   messages:
@@ -36,11 +65,28 @@ components:
       contentType: application/json
       payload:
         $ref: "#/components/schemas/schema_sensor_value"
-
+    message_gadget_subscribe:
+      title: Gadget change state command
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/schema_gadget_command"
+    message_gadget_publish:
+      title: Update the gadget state
+      contentType: application/json
+      payload:
+        $ref: "#/components/schemas/schema_gadget_setstate"
 
   schemas:
     schema_sensor_value:
       type: object
       properties:
         value:
+          type: integer
+
+    schema_gadget_command:
+      type: string
+    schema_gadget_setstate:
+      type: object
+      properties:
+        state:
           type: integer
