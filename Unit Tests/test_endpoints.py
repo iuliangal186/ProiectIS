@@ -93,7 +93,7 @@ def test_temperature_sensor_noparam(client):
     assert landing.status_code == 400,"Page should return bad request"
 
 
-def test_light_sensor_values(client):
+def test_luminosity_sensor_values(client):
     landing = client.get("/lumina/")
     data = json.loads(landing.data.decode())
 
@@ -118,7 +118,7 @@ def test_light_sensor_values(client):
 
     assert landing.status_code == 200
 
-def test_light_sensor_noparam(client):
+def test_luminosity_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/lumina/statistics")
 

@@ -3,7 +3,7 @@ import random
 import json
 import time
 
-# Client for simulating all sensors: light, humidity, temperature
+# Client for simulating all sensors: temperature, luminosity, humidity
 
 sensor_topics=["temperature","luminosity","humidity"]
 client=None
