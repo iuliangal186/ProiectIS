@@ -131,32 +131,6 @@
 				}
 			},
 			"response": []
-		},
-		{
-			"name": "Get Temperatura Statistics",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:42178/temperatura/statistics?time_period=2",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "42178",
-					"path": [
-						"temperatura",
-						"statistics"
-					],
-					"query": [
-						{
-							"key": "time_period",
-							"value": "2"
-						}
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
