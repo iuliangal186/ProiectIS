@@ -3,8 +3,9 @@ flaskr.sqlite
 # Do not ignore the unit tests database as that should not be modified and available for tests
 !Unit Tests/flaskr.sqlite
 
-# Gitignore VS COde
+# Gitignore VS Code
 .vscode
+.idea
 
 # Local History for Visual Studio Code
 .history/
