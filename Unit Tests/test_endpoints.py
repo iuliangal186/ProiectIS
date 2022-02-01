@@ -233,6 +233,7 @@ def test_door_gadget_noparam(client):
 # Test if integration with mqtt works
 def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
     # Test if the values are returned as supposed for a specific id
+    sleep(2)    # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
     last_event=db.get_db().execute(
         f"SELECT max(id) FROM events \
         WHERE event_location='WINDOW'"
@@ -242,6 +243,11 @@ def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
     last_event_id=last_event[0]
     print(last_event_id)
 
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/fereastra/?last_id={last_event_id}")
+    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200,"Page should return success"
+    assert "There are no new events registered" in data["status"]
     sleep(2)
 
     # Test if the last request triggered a new event
@@ -255,6 +261,7 @@ def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
 # Test if integration with mqtt works
 def test_gadgetdoor_and_mqtt(client,mqtt_door,mqtt_server):
     # Test if the values are returned as supposed for a specific id
+    sleep(2)    # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
     last_event=db.get_db().execute(
         f"SELECT max(id) FROM events \
         WHERE event_location='DOOR'"
@@ -264,6 +271,11 @@ def test_gadgetdoor_and_mqtt(client,mqtt_door,mqtt_server):
     last_event_id=last_event[0]
     print(last_event_id)
 
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/usa/?last_id={last_event_id}")
+    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200,"Page should return success"
+    assert "There are no new events registered" in data["status"]
     sleep(2)
 
     # Test if the last request triggered a new event
