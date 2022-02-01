@@ -59,13 +59,15 @@ def test_root_endpoint(client):
     assert "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>" in html
     assert landing.status_code == 200
 
-def test_sensor_values_temperature(client):
+
+
+def test_temperature_sensor_values(client):
     landing = client.get("/temperatura/")
     data = json.loads(landing.data.decode())
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id']!=0
-    assert data['data']['value']>0 and data['data']['value']<100
+    assert data['data']['value']>=0 and data['data']['value']<100
     assert landing.status_code == 200
 
     # Get a random sample between 0 hours and 24 hours
@@ -84,14 +86,14 @@ def test_sensor_values_temperature(client):
 
     assert landing.status_code == 200
 
-def test_sensor_noparam_temperature(client):
+def test_temperature_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/temperatura/statistics")
 
     assert landing.status_code == 400,"Page should return bad request"
 
 
-def test_sensor_values_light(client):
+def test_light_sensor_values(client):
     landing = client.get("/lumina/")
     data = json.loads(landing.data.decode())
 
@@ -116,7 +118,7 @@ def test_sensor_values_light(client):
 
     assert landing.status_code == 200
 
-def test_sensor_noparam_light(client):
+def test_light_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/lumina/statistics")
 
@@ -124,7 +126,7 @@ def test_sensor_noparam_light(client):
 
 
 
-def test_sensor_values_humidity(client):
+def test_humidity_sensor_values(client):
     landing = client.get("/umiditate/")
     data = json.loads(landing.data.decode())
 
@@ -149,7 +151,7 @@ def test_sensor_values_humidity(client):
 
     assert landing.status_code == 200
 
-def test_sensor_noparam_humidity(client):
+def test_humidity_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/umiditate/statistics")
 
@@ -157,7 +159,7 @@ def test_sensor_noparam_humidity(client):
 
 
 
-def test_gadget_window(client):
+def test_window_gadget(client):
     # Test if requesting a large id will result in error
     landing = client.get("/fereastra/?last_id=1000")
     data = json.loads(landing.data.decode())
@@ -180,7 +182,12 @@ def test_gadget_window(client):
     assert landing.status_code == 200,"Page should return success"
     assert "There are no new events registered" in data["status"]
 
-def test_gadget_door(client):
+def test_window_gadget_noparam(client):
+    # Test if a missing param will result in error
+    landing = client.get("/fereastra/")
+    assert landing.status_code == 400,"Page should return bad request"
+
+def test_door_gadget(client):
     # Test if requesting a large id will result in error
     landing = client.get("/usa/?last_id=1000")
     data = json.loads(landing.data.decode())
@@ -190,7 +197,7 @@ def test_gadget_door(client):
     # Test if the values are returned as supposed for a specific id
     last_event=db.get_db().execute(
         f"SELECT max(id) FROM events \
-        WHERE event_location='WINDOW'"
+        WHERE event_location='DOOR'"
     ).fetchone()
 
     assert last_event!=None, "There should be some rows in the database"
@@ -203,7 +210,10 @@ def test_gadget_door(client):
     assert landing.status_code == 200,"Page should return success"
     assert "There are no new events registered" in data["status"]
 
-
+def test_door_gadget_noparam(client):
+    # Test if a missing param will result in error
+    landing = client.get("/fereastra/")
+    assert landing.status_code == 400,"Page should return bad request"
 
 
 
