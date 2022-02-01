@@ -35,7 +35,7 @@ def handler_get():
     last_event=db.execute(
         f"SELECT * FROM events \
         WHERE event_location='WINDOW' AND id>{last_event_id}\
-        ORDER BY id DESC"
+        ORDER BY timestamp DESC"
     ).fetchone()
 
     # No new event was found so trigger a new one
