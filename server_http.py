@@ -4,6 +4,8 @@ from threading import Thread
 import threading
 import random
 import time
+import yaml
+import json
 import sys
 import db
 
@@ -25,14 +27,18 @@ def openapi_docs_route():
     return render_template("/OpenAPI/index.html", title = 'Main page')
 @app.route("/openapi.json")
 def openapi_route():
-    return render_template("/OpenAPI/openapi.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
+    with open("Static/OpenAPI/openapi.yaml", 'r') as yaml_in:
+        yaml_object = yaml.safe_load(yaml_in) # yaml_object will be a list or a dict
+        return json.dumps(yaml_object),200,{'Content-Type': 'application/json'}
 
 @app.route("/asyncapi")
 def asyncapi_docs_route():
     return render_template("/AsyncAPI/index.html", title = 'Main page')
 @app.route("/asyncapi.json")
 def asyncapi_route():
-    return render_template("/AsyncAPI/asyncapi.json", title = 'Swagger docs'),200,{'Content-Type': 'application/json'}
+    with open("Static/AsyncAPI/asyncapi.yaml", 'r') as yaml_in:
+        yaml_object = yaml.safe_load(yaml_in) # yaml_object will be a list or a dict
+        return json.dumps(yaml_object),200,{'Content-Type': 'application/json'}
 
 
 

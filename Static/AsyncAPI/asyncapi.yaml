@@ -14,6 +14,7 @@ channels:
     description: Temperature sensor endpoint
     publish:
       message:
+        description: Sets the sensor value
         $ref: '#/components/messages/message_sensor_publish'
 
 
