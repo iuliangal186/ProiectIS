@@ -34,8 +34,8 @@ def handler_get():
     # Obviously! This is a major sql injection bug. Still researching how to fix it in python
     last_event=db.execute(
         f"SELECT * FROM events \
-        WHERE event_location='WINDOW' AND id>{last_event_id} \
-        ORDER BY timestamp DESC"
+        WHERE event_location='WINDOW' AND id>{last_event_id}\
+        ORDER BY id DESC"
     ).fetchone()
 
     # No new event was found so trigger a new one

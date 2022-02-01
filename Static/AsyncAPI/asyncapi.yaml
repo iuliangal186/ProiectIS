@@ -16,8 +16,18 @@ channels:
       message:
         description: Sets the sensor value
         $ref: '#/components/messages/message_sensor_publish'
-
-
+  /greenhouse/luminosity:
+    description: Luminosity sensor endpoint
+    publish:
+      message:
+        description: Sets the sensor value
+        $ref: '#/components/messages/message_sensor_publish'
+  /greenhouse/humidity:
+    description: Humidity sensor endpoint
+    publish:
+      message:
+        description: Sets the sensor value
+        $ref: '#/components/messages/message_sensor_publish'
 
 components:
   messages:

@@ -49,6 +49,14 @@ def mqtt_window():
     yield mqtt_client
     mqtt_client.disconnect()
 
+@pytest.fixture(scope="module")
+def mqtt_door():
+    import Sensors.gadget_door as gadget_door
+
+    # This does not block
+    mqtt_client=gadget_door.test_mqtt()
+    yield mqtt_client
+    mqtt_client.disconnect()
 
 
 
@@ -245,11 +253,11 @@ def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
     assert data["data"]["state"]=="OPENED" or data["data"]["state"]=="CLOSED"
 
 # Test if integration with mqtt works
-def test_gadgetdoor_and_mqtt(client,mqtt_window,mqtt_server):
+def test_gadgetdoor_and_mqtt(client,mqtt_door,mqtt_server):
     # Test if the values are returned as supposed for a specific id
     last_event=db.get_db().execute(
         f"SELECT max(id) FROM events \
-        WHERE event_location='WINDOW'"
+        WHERE event_location='DOOR'"
     ).fetchone()
 
     assert last_event!=None, "There should be some rows in the database"

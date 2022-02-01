@@ -51,8 +51,7 @@ def handler_get_history():
     ).fetchall()
     average_point=db.execute(
         f"SELECT AVG(value) FROM humidity \
-        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
-        ORDER BY timestamp ASC;"
+        WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}"
     ).fetchone()
 
     if sample_points is None or average_point is None:
