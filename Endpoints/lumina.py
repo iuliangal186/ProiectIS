@@ -42,7 +42,7 @@ def handler_get():
 @bp.route("/statistics",methods=["GET"])
 def handler_get_history():
     db=get_db()
-    hours_time_period=int(request.args["time_period"])
+    hours_time_period=float(request.args["time_period"])
 
     sample_points=db.execute(
         f"SELECT value FROM luminosity \

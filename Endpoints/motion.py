@@ -44,9 +44,9 @@ def handler_get():
 def handler_get_history():
     db=get_db()
     hours_time_period=float(request.args["time_period"])
-
+    print("asd")
     sample_points=db.execute(
-        f"SELECT value FROM motion \
+        f"SELECT timestamp,area,duration,value FROM motion \
         WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
         ORDER BY timestamp ASC"
     ).fetchall()
@@ -58,7 +58,7 @@ def handler_get_history():
 
     result=[]
     for entry in sample_points:
-        result.append({"timestamp":entry["value"],"area":entry["area"],"duration":entry["duration"],"strength":entry["value"]})
+        result.append({"timestamp":entry["timestamp"],"area":entry["area"],"duration":entry["duration"],"strength":entry["value"]})
 
     return jsonify({
         "status":"Data succesfully retrieved",
