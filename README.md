@@ -113,8 +113,6 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 7. citirea unui sensor de miscare. Functional 2 2 2 2 = 2; Prioritate= 3 4 4 3 = 3.50 
 8. performanta sistemului nu este critica. Nonfunctional 1 1 1 2 = 1.25; Prioritate= 1 1 2 2 = 1.50 
 9. conexiunea la internet. Functional 4 2 1 3 =2.50; Prioritate= 3 5 5 3 = 4 
-10. crearea unei interfete minimaliste. Nonfunctional 3 3 3 4 =3.25; Prioritate= 3 2 2 2 = 2.25
-11. adapatarea aplicatiei atat pe mobil cat si pe desktop. Nonfunctional 5 5 5 4 = 4.75; Prioritate= 1 2 3 3 = 2.25
 
 *5. Plot the issues.* 
 ![Axa Dificultate/Prioritate](https://cdn.discordapp.com/attachments/899336393657036871/902527635400327198/Screenshot_2021-10-26_150217.png)
