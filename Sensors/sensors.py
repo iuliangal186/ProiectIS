@@ -5,7 +5,7 @@ import time
 
 # Client for simulating all sensors: temperature, luminosity, humidity
 
-sensor_topics=["temperature","luminosity","humidity"]
+sensor_topics=["temperature","luminosity","humidity","motion"]
 client=None
 broker = 'broker.emqx.io'
 port = 1883
@@ -48,14 +48,30 @@ def run_sensors():
 
     while True:
         for sensor in sensor_topics:
-            sensor_value=random.randint(0,50)
-            print(f"Current {sensor} value: ",sensor_value)
-
             topic=root_topic+sensor
-            msg=json.dumps({"value":sensor_value})
+
+            if "motion" in sensor:
+                msg=motion_generator()
+            else:
+                msg=default_generator()
             publish(topic,msg)
 
         time.sleep(5)
+
+def default_generator():
+    sensor_value=random.randint(0,50)
+    msg=json.dumps({"value":sensor_value})
+    return msg
+
+def motion_generator():
+    sensor_area=random.randint(0,5)
+    sensor_duration=random.randint(1,50)
+    sensor_value=random.randint(0,10)/10
+
+    msg=json.dumps({"area":sensor_area,"duration":sensor_duration,"value":sensor_value})
+    return msg
+
+
 
 
 def run():
