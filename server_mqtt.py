@@ -1,4 +1,6 @@
+import json
 import time
+import status
 from threading import Thread
 from collections import deque
 from flask_mqtt import Mqtt
@@ -70,6 +72,18 @@ def run_mqtt_server():
     thread.daemon = True
     thread.start()
 
+#MQTT Publishing 
+def background_thread():
+    count = 0
+    while True:
+        time.sleep(1)
+        # Using app context is required because the get_status() functions
+        # requires access to the db.
+        with server_http.get_app.app_context():
+            message = json.dumps(status.get_status(), default=str)
+        # Publish
+        mqtt.publish('python/mqtt', message)
+
 
 def init_mqtt():
     register_endpoints()
@@ -81,3 +95,4 @@ def get_mqtt_client():
 
 def get_mqtt_queue():
     return mqqt_commands_queue
+
