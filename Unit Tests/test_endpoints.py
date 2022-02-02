@@ -62,25 +62,28 @@ def mqtt_door():
 
 def test_root_endpoint(client):
     landing = client.get("/")
+    assert landing.status_code == 200
+
     html = landing.data.decode()
 
     assert "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>" in html
-    assert landing.status_code == 200
 
 def test_temperature_sensor_values(client):
     landing = client.get("/temperatura/")
+    assert landing.status_code == 200
+
     data = json.loads(landing.data.decode())
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id']!=0
     assert data['data']['value']>=0 and data['data']['value']<100
-    assert landing.status_code == 200
 
     # Get a random sample between 0 hours and 24 hours
     rand_nr=random.randint(0,24)
     landing = client.get("/temperatura/statistics?time_period="+str(rand_nr))
-    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200
 
+    data = json.loads(landing.data.decode())
     print(rand_nr,data)
 
     assert "Data succesfully retrieved" in data['status']
@@ -90,7 +93,6 @@ def test_temperature_sensor_values(client):
         assert data['data']['average']>0 and data['data']['average']<100
         assert data['data']['average']==sum(data['data']['history'])/len(data['data']['history'])
 
-    assert landing.status_code == 200
 
 def test_temperature_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
@@ -102,18 +104,20 @@ def test_temperature_sensor_noparam(client):
 
 def test_luminosity_sensor_values(client):
     landing = client.get("/lumina/")
+    assert landing.status_code == 200
+
     data = json.loads(landing.data.decode())
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id']!=0
-    assert data['data']['value']>0 and data['data']['value']<100
-    assert landing.status_code == 200
+    assert data['data']['value']>=0 and data['data']['value']<100
 
     # Get a random sample between 0 hours and 24 hours
     rand_nr=random.randint(0,24)
     landing = client.get("/lumina/statistics?time_period="+str(rand_nr))
-    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200
 
+    data = json.loads(landing.data.decode())
     print(rand_nr,data)
 
     assert "Data succesfully retrieved" in data['status']
@@ -123,7 +127,6 @@ def test_luminosity_sensor_values(client):
         assert data['data']['average']>0 and data['data']['average']<100
         assert data['data']['average']==sum(data['data']['history'])/len(data['data']['history'])
 
-    assert landing.status_code == 200
 
 def test_luminosity_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
@@ -135,18 +138,20 @@ def test_luminosity_sensor_noparam(client):
 
 def test_humidity_sensor_values(client):
     landing = client.get("/umiditate/")
+    assert landing.status_code == 200
+
     data = json.loads(landing.data.decode())
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id']!=0
-    assert data['data']['value']>0 and data['data']['value']<100
-    assert landing.status_code == 200
+    assert data['data']['value']>=0 and data['data']['value']<100
 
     # Get a random sample between 0 hours and 24 hours
     rand_nr=random.randint(0,24)
     landing = client.get("/umiditate/statistics?time_period="+str(rand_nr))
-    data = json.loads(landing.data.decode())
+    assert landing.status_code == 200
 
+    data = json.loads(landing.data.decode())
     print(rand_nr,data)
 
     assert "Data succesfully retrieved" in data['status']
@@ -156,7 +161,6 @@ def test_humidity_sensor_values(client):
         assert data['data']['average']>0 and data['data']['average']<100
         assert data['data']['average']==sum(data['data']['history'])/len(data['data']['history'])
 
-    assert landing.status_code == 200
 
 def test_humidity_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
@@ -166,14 +170,20 @@ def test_humidity_sensor_noparam(client):
 
 def test_movement_sensor_values(client):
     landing = client.get("/miscare/")
+    assert landing.status_code == 200
+
     data = json.loads(landing.data.decode())
+
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id'] != 0
-    assert data['data']['value'] >= 0 and data['data']['value'] < 100
-    assert landing.status_code == 200
+    assert data['data']['value'] >= 0 and data['data']['value'] <=1
+    assert data['data']['area'] >= 0 and data['data']['area'] <=5
+    assert data['data']['duration'] >= 1 and data['data']['duration'] <=50
 
     rand_nr = random.randint(0, 24)
     landing = client.get("/miscare/statistics?time_period=" + str(rand_nr))
+    assert landing.status_code == 200
+
     data = json.loads(landing.data.decode())
 
     print(rand_nr, data)
@@ -185,7 +195,6 @@ def test_movement_sensor_values(client):
         assert data['data']['average'] > 0 and data['data']['average'] < 100
         assert data['data']['average'] == sum(data['data']['history']) / len(data['data']['history'])
 
-    assert landing.status_code == 200
 
 def test_movement_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
@@ -198,8 +207,9 @@ def test_movement_sensor_noparam(client):
 def test_window_gadget(client):
     # Test if requesting a large id will result in error
     landing = client.get("/fereastra/?last_id=1000")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
     # Test if the values are returned as supposed for a specific id
@@ -214,8 +224,9 @@ def test_window_gadget(client):
 
     # Test if a request to the last id generates an no-new-events error
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
 def test_window_gadget_noparam(client):
@@ -228,8 +239,9 @@ def test_window_gadget_noparam(client):
 def test_door_gadget(client):
     # Test if requesting a large id will result in error
     landing = client.get("/usa/?last_id=1000")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
     # Test if the values are returned as supposed for a specific id
@@ -244,8 +256,9 @@ def test_door_gadget(client):
 
     # Test if a request to the last id generates an no-new-events error
     landing = client.get(f"/usa/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
 def test_door_gadget_noparam(client):
@@ -286,15 +299,17 @@ def test_gadgetwindow_and_mqtt(client,mqtt_window,mqtt_server):
 
     # Try and trigger a state change in the gadget
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
     sleep(2)
 
     # Test if the last request triggered a new event
     landing = client.get(f"/fereastra/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]
     assert data["data"]["id"]>last_event_id
     assert data["data"]["state"]=="OPENED" or data["data"]["state"]=="CLOSED"
@@ -314,15 +329,17 @@ def test_gadgetdoor_and_mqtt(client,mqtt_door,mqtt_server):
 
     # Try and trigger a state change in the gadget
     landing = client.get(f"/usa/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
     sleep(2)
 
     # Test if the last request triggered a new event
     landing = client.get(f"/usa/?last_id={last_event_id}")
-    data = json.loads(landing.data.decode())
     assert landing.status_code == 200,"Page should return success"
+
+    data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]
     assert data["data"]["id"]>last_event_id
     assert data["data"]["state"]=="OPENED" or data["data"]["state"]=="CLOSED"

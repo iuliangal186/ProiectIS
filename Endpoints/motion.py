@@ -44,7 +44,6 @@ def handler_get():
 def handler_get_history():
     db=get_db()
     hours_time_period=float(request.args["time_period"])
-    print("asd")
     sample_points=db.execute(
         f"SELECT timestamp,area,duration,value FROM motion \
         WHERE (julianday('now')-julianday(timestamp))*24<{hours_time_period}\
