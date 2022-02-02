@@ -308,6 +308,8 @@ def test_weather_average_pressure(client):
 
 
 """ ---- INTEGRATION TESTING ---- """
+
+
 # Test if integration with mqtt works
 def test_gadgetwindow_and_mqtt(client, mqtt_window, mqtt_server):
     # Test if the values are returned as supposed for a specific id
@@ -368,3 +370,126 @@ def test_gadgetdoor_and_mqtt(client, mqtt_door, mqtt_server):
     assert "Event succesfully retrieved" in data["status"]
     assert data["data"]["id"] > last_event_id
     assert data["data"]["state"] == "OPENED" or data["data"]["state"] == "CLOSED"
+
+
+def test_luminositysensor_and_mqtt(client, mqtt_door, mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    sleep(2)  # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
+    last_event = db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='luminosity'"
+    ).fetchone()
+
+    assert last_event is not None, "There should be some rows in the database"
+    last_event_id = last_event[0]
+    print(last_event_id)
+
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/lumina")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "There are no new events registered" in data["status"]
+    sleep(2)
+
+    # Test if the last request triggered a new event
+    landing = client.get(f"/lumina")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "Event succesfully retrieved" in data["status"]
+    assert data['data']['id'] != 0
+    assert data['data']['value'] >= 0 and data['data']['value'] < 100
+
+
+def test_motionsensor_and_mqtt(client, mqtt_door, mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    sleep(2)  # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
+    last_event = db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='motion'"
+    ).fetchone()
+
+    assert last_event is not None, "There should be some rows in the database"
+    last_event_id = last_event[0]
+    print(last_event_id)
+
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/miscare")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "There are no new events registered" in data["status"]
+    sleep(2)
+
+    # Test if the last request triggered a new event
+    landing = client.get(f"/miscare")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "Event succesfully retrieved" in data["status"]
+    assert data['data']['id'] != 0
+    assert data['data']['strength'] >= 0 and data['data']['strength'] <= 1
+    assert data['data']['area'] >= 0 and data['data']['area'] <= 5
+    assert data['data']['duration'] >= 1 and data['data']['duration'] <= 50
+
+
+def test_temperaturesensor_and_mqtt(client, mqtt_door, mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    sleep(2)  # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
+    last_event = db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='temperature'"
+    ).fetchone()
+
+    assert last_event is not None, "There should be some rows in the database"
+    last_event_id = last_event[0]
+    print(last_event_id)
+
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/temperatura")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "There are no new events registered" in data["status"]
+    sleep(2)
+
+    # Test if the last request triggered a new event
+    landing = client.get(f"/temperatura")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "Event succesfully retrieved" in data["status"]
+    assert data['data']['id'] != 0
+    assert data['data']['value'] >= -100 and data['data']['value'] < 100, "Temperatura nu e valida"
+    assert data['data']['reference_value'] >= -100 and data['data']['reference_value'] < 100, "Temperatura nu e valida"
+
+
+def test_humiditysensor_and_mqtt(client, mqtt_door, mqtt_server):
+    # Test if the values are returned as supposed for a specific id
+    sleep(2)  # Wait for the previous test to complete(and for the matt to respond)...yeah this is called testing
+    last_event = db.get_db().execute(
+        f"SELECT max(id) FROM events \
+        WHERE event_location='humidity'"
+    ).fetchone()
+
+    assert last_event is not None, "There should be some rows in the database"
+    last_event_id = last_event[0]
+    print(last_event_id)
+
+    # Try and trigger a state change in the gadget
+    landing = client.get(f"/umiditate")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "There are no new events registered" in data["status"]
+    sleep(2)
+
+    # Test if the last request triggered a new event
+    landing = client.get(f"/umiditate")
+    assert landing.status_code == 200, "Page should return success"
+
+    data = json.loads(landing.data.decode())
+    assert "Event succesfully retrieved" in data["status"]
+    assert data['data']['id'] != 0
+    assert data['data']['value'] >= 0 and data['data']['value'] < 100
