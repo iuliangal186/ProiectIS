@@ -1,4 +1,4 @@
-Trebuie setat virtual environment:
+(**Optional**)Trebuie setat virtual environment:
 ``py -m venv venv``
 ``venv\Scripts\activate``
 
