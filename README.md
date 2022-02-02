@@ -102,8 +102,6 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 7. citirea unui sensor de miscare. Functional 2 2 2 2 = 2 
 8. performanta sistemului nu este critica. Nonfunctional 1 1 1 2 = 1.25 
 9. conexiunea la internet. Functional 4 2 1 3 =2.50 
-10. crearea unei interfete minimaliste. Nonfunctional 3 3 3 4 =3.25 
-11. adapatarea aplicatiei atat pe mobil cat si pe desktop. Nonfunctional 5 5 5 4 = 4.75
 
 **Poker planning dupa prioritate**:
 1. prezenta unui spatiu de stocare ce retine in timp datele senzorilor si compileaza statistici pe baza lor. Functional 3 3 3 4 = 3.25; Prioritate= 5 5 5 5 = 5 
