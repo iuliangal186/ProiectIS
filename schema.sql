@@ -22,7 +22,7 @@ CREATE TABLE motion (
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   area INTEGER NOT NULL,
   duration INTEGER NOT NULL,
-  value REAL NOT NULL       /*  A value which indicates the magnitude of the movement/ or just 0 and 1 for true or false*/
+  value REAL NOT NULL       /*  A value which indicates the magnitude of the motion/ or just 0 and 1 for true or false*/
 );
 
 CREATE TABLE events (

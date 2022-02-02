@@ -40,3 +40,25 @@ def get_reference_temperature():
     weather_description = z[0]["description"]
 
     return current_temperature
+
+def get_reference_humidity():
+    global cache_time,cache_reset_timeout,cache_response
+    x=None
+
+    if UtcNow()-cache_time>cache_reset_timeout:
+        cache_time=UtcNow()
+
+        response = requests.get(complete_url)
+        x = response.json()
+        cache_response=x
+    else:
+        x=cache_response
+
+    y = x["main"]
+    current_temperature =round(y["temp"] - 273.15, 2) 
+    current_pressure = y["pressure"]
+    current_humidity = y["humidity"]
+    z = x["weather"]
+    weather_description = z[0]["description"]
+
+    return current_humidity
