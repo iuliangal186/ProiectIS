@@ -118,10 +118,10 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 ![Axa Dificultate/Prioritate](https://cdn.discordapp.com/attachments/899336393657036871/902527635400327198/Screenshot_2021-10-26_150217.png)
 
 ## Membrii echipei:
-[Dudau Vlad](https://github.com/vladdudau)
-[Gal Iulian](https://github.com/iuliangal186)
-[Mindrescu Albert-Codrin](https://github.com/MindrescuAlbert)
-[Neculae Andrei-Sorin](https://github.com/sorinNgit)
-[Reznicencu Sergiu](https://github.com/AntonVonDelta)
-[Staicu Bogdan](https://github.com/StaicuBogdan)
+[Dudau Vlad](https://github.com/vladdudau)<br>
+[Gal Iulian](https://github.com/iuliangal186)<br>
+[Mindrescu Albert-Codrin](https://github.com/MindrescuAlbert)<br>
+[Neculae Andrei-Sorin](https://github.com/sorinNgit)<br>
+[Reznicencu Sergiu](https://github.com/AntonVonDelta)<br>
+[Staicu Bogdan](https://github.com/StaicuBogdan)<br>
 
