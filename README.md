@@ -116,3 +116,5 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 
 *5. Plot the issues.* 
 ![Axa Dificultate/Prioritate](https://cdn.discordapp.com/attachments/899336393657036871/902527635400327198/Screenshot_2021-10-26_150217.png)
+
+**Membrii echipei: **
