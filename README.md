@@ -1,4 +1,6 @@
 # Sera Smart – Echipa 17
+O sera inteligenta cu control de la distanta si integrare cu mqtt!
+Acest proiect iti ofera posibilitatea de a seta senzori de `temperatura`, `umiditate`, `lumina`, `miscare` in propia sera si de a-i monitoriza de la distanta. Iar atunci cand valori depasesc un prag sau se doreste modificarea mediului intern se pot efectua de la distanta doua actiuni: `deschiderea usii` pentru o ventilatie mai buna sau `a geamului` pentru controlul luminii si a umiditatii.
 
 ## Proiect realizat cu:
 - [Python 3.7](https://www.python.org/downloads/release/python-370/)
