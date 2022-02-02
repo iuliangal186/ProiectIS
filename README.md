@@ -1,4 +1,4 @@
-**Sera Smart – Echipa 17**
+# Sera Smart – Echipa 17
 
 ## Proiect realizat cu:
 - [Python 3.7](https://www.python.org/downloads/release/python-370/)
