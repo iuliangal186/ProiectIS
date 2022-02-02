@@ -57,17 +57,6 @@ print(" Temperature (in celsius) = " +
       str(weather_description))
 """
 
-
-def mqtt_on_message(msg):
-    sensor_topic = root_topic + sensor_root_topic
-    if not sensor_topic == msg.topic:
-        return
-
-    print(f"Outside temperature: received {msg.payload.decode()} from {msg.topic} topic")
-
-    json_msg = json.loads(msg.payload.decode())
-
-
 def mqtt_on_message(client,userdata,msg):
     sensor_topic=root_topic+sensor_root_topic
     if not sensor_topic==msg.topic:

@@ -1,7 +1,8 @@
 CREATE TABLE temperature (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  value REAL NOT NULL
+  value REAL NOT NULL,
+  reference_value NOT NULL    /* The value returned by a reliable source e.g external API */
 );
 
 CREATE TABLE humidity (
