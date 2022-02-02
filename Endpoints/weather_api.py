@@ -13,12 +13,18 @@ cache_time=0
 cache_reset_timeout=5   # seconds
 cache_response=None
 
+# Unbelievable. I have to write code to calculate something as simple and important as utc time
+def UtcNow():
+    now = datetime.utcnow()
+    return  (now - datetime(1970, 1, 1)).total_seconds()
+
+
 def get_reference_temperature():
     global cache_time,cache_reset_timeout,cache_response
     x=None
 
-    if datetime.now()-cache_time>cache_reset_timeout:
-        cache_time=datetime.now()
+    if UtcNow()-cache_time>cache_reset_timeout:
+        cache_time=UtcNow()
 
         response = requests.get(complete_url)
         x = response.json()
