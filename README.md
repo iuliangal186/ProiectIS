@@ -39,8 +39,6 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - citirea unui senzor de miscare.
 - performanta sistemului nu este critica.
 - conexiunea la internet.
-- crearea unei interfete minimaliste.
-- adaptarea aplicatiei atat pe mobil cat si pe desktop.
 
 
 ## Interpretarea și prioritizarea cerințelor
@@ -56,8 +54,6 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - citirea unui sensor de miscare.        **Functional**
 - performanta sistemului nu este critica.    **Nonfunctional**
 - conexiunea la internet.            **Functional**
-- crearea unei interfete minimaliste. **Nonfunctional**
-- adapatarea aplicatiei atat pe mobil cat si pe desktop. **Nonfunctional**
 - accesarea sistemului prin HTTP  **Functional**
 - implementarea serverului prin tehnologia MQTT   **Functional**
 
