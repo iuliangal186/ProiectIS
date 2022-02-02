@@ -12,8 +12,10 @@ Acest proiect iti ofera posibilitatea de a seta senzori de `temperatura`, `umidi
 - [PyYAML](https://pyyaml.org/)
 - [SQLite](https://www.sqlite.org/docs.html)
 
+## Initializare unelte
+Instaleaza pachetele `py -3.7 -m pip install flask pytest coverage pyyaml`
 
-## Cum rulez programul:
+## Executia programului
 Mai intai se creeaza baza de date:
 - ``py -3.7 app.py init-db``
 - ``python app.py init-db``
@@ -22,18 +24,35 @@ Se executa prin comenzile:
 - ``py -3.7 app.py``
 - ``python app.py``
 
-**Document de analiză a cerințelor clientului**
+## Testarea proiectului
+In path-ul `Unit Tests` sunt definite atat unit tests cat si integration tests.
 
-## Scopul aplicației: 
+Se executa:
+- `cd "Unit Tests"`
+- `py -3.7 -m pytest`
+
+Pentru coverage:
+- `py -3.7 -m coverage run -m pytest`
+- `py -3.7 -m coverage report`
+
+![image](https://user-images.githubusercontent.com/25268629/152255607-d3f42968-664a-4017-8b12-00dad12a5843.png)
+
+
+
+
+
+## Document de analiză a cerințelor clientului
+
+#### Scopul aplicației: 
 *Aplicatia are ca scop modificarea serei traditionale prin automatizarea acesteia, folosindu-se de date de natura variabila pe care le preia din mediul inconjurator (lumina, temperatura, umiditate etc.). Aceasta aplicatie poate fi rulata si parametrii pot fi modificati de catre utilizator remote prin intermediul telefonului/desktopului si va oferi un feedback in timp real a conditiilor din sera.*
 
-## Obiectivele aplicației:
+#### Obiectivele aplicației:
 - Sera va avea ca scop maximizarea cantitatii de recolta din interiorul acesteia de-a lungul timpului.
 - Aceasta va economisi resursele neregenerabile folosite si timpul persoanei care o detine/opereaza. 
 - Aplicatia ar trebui sa fie usor de folosit si foarte intuitiva*.*
 
 
-## Grupul țintă
+#### Grupul țintă
 Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicultura, ce cauta sa isi automatizeze propriile culturi.
 
 - Ca agricultor, as vrea sa pot sa accesez o serie de statistici relevante despre sera, pentru a optimiza calitatea viitoarei recolte.
@@ -42,7 +61,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - Ca legumicultor amator, as dori sa pot sa ma descurc cu sera intr-un mod cat mai necostisitor.
 
 
-## Colectarea cerințelor
+#### Colectarea cerințelor
 
 - prezenta unui spatiu de stocare ce retine in timp datele senzorilor si compileaza statistici pe baza lor.
 - folosirea unui numar minim de senzori de temperatura, umiditate, lumina.
@@ -57,7 +76,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - conexiunea la internet.
 
 
-## Interpretarea și prioritizarea cerințelor
+### Interpretarea și prioritizarea cerințelor
 
 *1. Label-uiți cerințele funcționale / non-funcționale.* 
 
@@ -79,25 +98,25 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 
 *2. Gruparea cerințelor*
 
-**STOCAREA DATELOR**
+###### STOCAREA DATELOR
 
 - prezenta unui spatiu de stocare ce retine in timp datele senzorilor si compileaza statistici pe baza lor.
 
-**PERFORMANTA** 
+###### PERFORMANTA 
 
 - folosirea unui numar minim de senzori de temperatura, umiditate, lumina, miscare.
 - performanta sistemului nu este critica.
 
-**FUNCTIONABILITATE**
+###### FUNCTIONABILITATE
 
 - conexiunea la internet.
 - compilare de statistici.
 
-**APIs**
+###### APIs
 
 - accesarea unui api extern pentru preluarea datelor metereologice.
 
-**CITIREA SI PRELUCRAREA DATELOR**
+###### CITIREA SI PRELUCRAREA DATELOR
 
 - citirea unui sensor de temperatura.
 - citirea unui sensor de umiditate. 
@@ -111,7 +130,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 
 *4. Play planning poker.* 
 
-**Poker planning dupa dificultate**:
+###### Poker planning dupa dificultate:
 1. prezenta unui spatiu de stocare ce retine in timp datele senzorilor si compileaza statistici pe baza lor. Functional 3 3 3 4 = 3.25
 2. folosirea unui numar minim de senzori de temperatura, umiditate, lumina. Nonfunctional 1 2 1 2 = 1.50
 3. accesarea unui api extern pentru preluarea datelor metereologice. Functional 2 3 2 3 = 2.50 
@@ -122,7 +141,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 8. performanta sistemului nu este critica. Nonfunctional 1 1 1 2 = 1.25 
 9. conexiunea la internet. Functional 4 2 1 3 =2.50 
 
-**Poker planning dupa prioritate**:
+###### Poker planning dupa prioritate:
 1. prezenta unui spatiu de stocare ce retine in timp datele senzorilor si compileaza statistici pe baza lor. Functional 3 3 3 4 = 3.25; Prioritate= 5 5 5 5 = 5 
 2. folosirea unui numar minim de senzori de temperatura, umiditate, lumina. Nonfunctional 1 2 1 2 = 1.50; Prioritate= 1 1 3 5 = 2.5 
 3. accesarea unui api extern pentru preluarea datelor metereologice. Functional 2 3 2 3 = 2.50; Prioritate= 4 5 4 4 = 4.25 
