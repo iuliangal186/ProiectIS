@@ -1,18 +1,14 @@
 from flask import (
     Blueprint, request, jsonify
 )
-from flask_mqtt import Mqtt
 import json
 
 from db import get_db
 from common import root_topic
-import server_mqtt
-import server_http
+
 
 bp = Blueprint("lumina", __name__, url_prefix="/lumina")
 sensor_root_topic="luminosity"
-
-
 
 @bp.route("/",methods=["GET"])
 def handler_get():

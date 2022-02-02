@@ -5,7 +5,7 @@ import time
 
 # Client for simulating all sensors: temperature, luminosity, humidity
 
-sensor_topics=["temperature","luminosity","humidity"]
+sensor_topics=["temperature", "luminosity", "humidity", "movement"]
 client=None
 broker = 'broker.emqx.io'
 port = 1883
@@ -14,7 +14,6 @@ client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'emqx'
 password = 'public'
 
-
 def publish(topic,msg):
     global client
     result=client.publish(topic, msg)
@@ -22,8 +21,6 @@ def publish(topic,msg):
         print(f"Sent `{msg}` to topic `{topic}`")
     else:
         print(f"Failed to send message to topic {topic}")
-
-
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -56,7 +53,6 @@ def run_sensors():
             publish(topic,msg)
 
         time.sleep(5)
-
 
 def run():
     global client
