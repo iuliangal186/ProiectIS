@@ -72,12 +72,10 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 **PERFORMANTA** 
 
 - folosirea unui numar minim de senzori de temperatura, umiditate, lumina.
-- crearea unei interfete minimaliste.
 - performanta sistemului nu este critica.
 
 **FUNCTIONABILITATE**
 
-- adapatarea aplicatiei atat pe mobil cat si pe desktop.
 - conexiunea la internet.
 
 **APIs**

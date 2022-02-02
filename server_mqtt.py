@@ -44,6 +44,7 @@ def subscribe_to_topics():
     mqtt.subscribe(root_topic + "humidity")
     mqtt.subscribe(root_topic + "motion")
     mqtt.subscribe(root_topic + "weather")
+    mqtt.subscribe(root_topic + "movement")
 
 
 def register_endpoints():
@@ -55,6 +56,7 @@ def register_endpoints():
     mqtt_message_callbacks.append(umiditate.mqtt_on_message)
     mqtt_message_callbacks.append(motion.mqtt_on_message)
     mqtt_message_callbacks.append(weather.mqtt_on_message)
+    mqtt_message_callbacks.append(miscare.mqtt_on_message)
 
 
 def mqtt_message_pump():

@@ -14,7 +14,6 @@ client_id = f'python-mqtt-{random.randint(0, 1000)}'
 username = 'emqx'
 password = 'public'
 
-
 def publish(topic,msg):
     global client
     result=client.publish(topic, msg)
@@ -22,8 +21,6 @@ def publish(topic,msg):
         print(f"Sent `{msg}` to topic `{topic}`")
     else:
         print(f"Failed to send message to topic {topic}")
-
-
 
 def on_connect(client, userdata, flags, rc):
     if rc == 0:
@@ -72,8 +69,7 @@ def motion_generator():
     return msg
 
 
-
-
+ 
 def run():
     global client
 

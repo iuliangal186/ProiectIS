@@ -54,6 +54,7 @@ def register_endpoints():
     app.register_blueprint(umiditate.bp)
     app.register_blueprint(motion.bp)
     app.register_blueprint(weather.bp)
+    app.register_blueprint(miscare.bp)
 
 
 
