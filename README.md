@@ -49,6 +49,8 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - citirea unui senzor de umiditate.
 - citirea unui senzor de lumina.
 - citirea unui senzor de miscare.
+- actionarea de la distanta al unei usi.
+- actionarea de la distanta al unui geam.
 - performanta sistemului nu este critica.
 - conexiunea la internet.
 
@@ -64,6 +66,8 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - citirea unui sensor de umiditate.            **Functional**
 - citirea unui sensor de lumina.        **Functional**
 - citirea unui sensor de miscare.        **Functional**
+- actionarea de la distanta al unei usi.    **Functional**
+- actionarea de la distanta al unui geam.     **Functional**
 - performanta sistemului nu este critica.    **Nonfunctional**
 - conexiunea la internet.            **Functional**
 - accesarea sistemului prin HTTP  **Functional**
@@ -85,6 +89,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 **FUNCTIONABILITATE**
 
 - conexiunea la internet.
+- compilare de statistici.
 
 **APIs**
 
@@ -96,7 +101,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 - citirea unui sensor de umiditate. 
 - citirea unui sensor de lumina.        
 - citirea unui sensor de miscare. 
-
+- citirea unui api extern si compilarea temperaturii furnizate cu cea raportata de senzor.
 
 
 
