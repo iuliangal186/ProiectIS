@@ -207,6 +207,7 @@
   <li><a href="#umiditateStatisticsGet"><code><span class="http-method">get</span> /umiditate/statistics</code></a></li>
   <li><a href="#usaGet"><code><span class="http-method">get</span> /usa</code></a></li>
   <li><a href="#usaPost"><code><span class="http-method">post</span> /usa</code></a></li>
+  <li><a href="#vremeGet"><code><span class="http-method">get</span> /vreme</code></a></li>
   </ul>
 
   <h1><a name="Default">Default</a></h1>
@@ -804,6 +805,48 @@
         <a href="#GadgetWriteResponse">GadgetWriteResponse</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="vremeGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /vreme</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">vremeGet</span>)</div>
+    <div class="method-notes">Preia vremea curenta ca o referinta</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#WeatherResponse">WeatherResponse</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "temperature" : 6.027456183070403,
+  "humidity" : 0.8008281904610115,
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#WeatherResponse">WeatherResponse</a>
+  </div> <!-- method -->
+  <hr/>
 
   <h2><a name="__Models">Models</a></h2>
   [ Jump to <a href="#__Methods">Methods</a> ]
@@ -828,6 +871,7 @@
     <li><a href="#SensorRead_data"><code>SensorRead_data</code></a></li>
     <li><a href="#SensorStats"><code>SensorStats</code></a></li>
     <li><a href="#SensorStats_data"><code>SensorStats_data</code></a></li>
+    <li><a href="#WeatherResponse"><code>WeatherResponse</code></a></li>
   </ol>
 
   <div class="model">
@@ -978,6 +1022,15 @@
     <div class="field-items">
       <div class="param">average (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
 <div class="param">history (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">array[BigDecimal]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="WeatherResponse"><code>WeatherResponse</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">humidity (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">temperature (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   </body>
