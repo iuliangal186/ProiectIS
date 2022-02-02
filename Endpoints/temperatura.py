@@ -36,7 +36,8 @@ def handler_get():
         "data":{
             "id":last_event["id"],
             "timestamp":last_event["timestamp"],
-            "value":last_event["value"]
+            "value":last_event["value"],
+            "reference_value":last_event["reference_value"]
         }
     })
 
