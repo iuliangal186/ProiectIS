@@ -36,6 +36,14 @@ channels:
         $ref: '#/components/messages/message_motionsensor_publish'
 
 
+  /greenhouse/vreme:
+    description: Weather API call endpoint
+    publish:
+      message:
+        description: Gets data about the weather at the current location (Bucharest)
+        $ref: '#/components/messages/message_sensor_publish'
+
+
   /greenhouse/window/sync:
     description: Window gadget endpoint
     subscribe:
