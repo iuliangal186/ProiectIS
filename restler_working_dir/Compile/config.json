@@ -1,0 +1,23 @@
+{
+  "SwaggerSpecFilePath": [
+    "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\APIDocumentation\\OpenAPI\\openapi.yaml"
+  ],
+  "GrammarOutputDirectoryPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\restler_working_dir\\Compile",
+  "CustomDictionaryFilePath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\restler_working_dir\\Compile\\defaultDict.json",
+  "IncludeOptionalParameters": true,
+  "UseHeaderExamples": true,
+  "UsePathExamples": false,
+  "UseQueryExamples": true,
+  "UseBodyExamples": true,
+  "UseAllExamplePayloads": false,
+  "DiscoverExamples": false,
+  "ExamplesDirectory": "",
+  "DataFuzzing": true,
+  "ReadOnlyFuzz": false,
+  "ResolveQueryDependencies": true,
+  "ResolveBodyDependencies": true,
+  "ResolveHeaderDependencies": false,
+  "UseRefreshableToken": true,
+  "AllowGetProducers": false,
+  "TrackFuzzedParameterNames": false
+}

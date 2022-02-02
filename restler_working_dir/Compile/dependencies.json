@@ -1,0 +1,74 @@
+{
+  "/fereastra": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "last_id"
+        }
+      ]
+    }
+  },
+  "/lumina/statistics": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "time_period"
+        }
+      ]
+    }
+  },
+  "/miscare/statistics": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "time_period"
+        }
+      ]
+    }
+  },
+  "/temperatura/statistics": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "time_period"
+        }
+      ]
+    }
+  },
+  "/umiditate/statistics": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "time_period"
+        }
+      ]
+    }
+  },
+  "/usa": {
+    "GET": {
+      "Query": [
+        {
+          "producer_endpoint": "",
+          "producer_method": "",
+          "producer_resource_name": "",
+          "consumer_param": "last_id"
+        }
+      ]
+    }
+  }
+}

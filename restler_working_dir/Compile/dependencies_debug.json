@@ -1,0 +1,158 @@
+[
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/fereastra",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "last_id"
+        },
+        "ContainerName": "fereastra",
+        "PathContainerName": "fereastra",
+        "CandidateTypeNames": [
+          "fereastra"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "last_id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/lumina/statistics",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "time_period"
+        },
+        "ContainerName": "statistics",
+        "PathContainerName": "statistics",
+        "CandidateTypeNames": [
+          "statistic"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "time_period",
+        "ProducerParameterName": "period",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/miscare/statistics",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "time_period"
+        },
+        "ContainerName": "statistics",
+        "PathContainerName": "statistics",
+        "CandidateTypeNames": [
+          "statistic"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "time_period",
+        "ProducerParameterName": "period",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/temperatura/statistics",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "time_period"
+        },
+        "ContainerName": "statistics",
+        "PathContainerName": "statistics",
+        "CandidateTypeNames": [
+          "statistic"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "time_period",
+        "ProducerParameterName": "period",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/umiditate/statistics",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "time_period"
+        },
+        "ContainerName": "statistics",
+        "PathContainerName": "statistics",
+        "CandidateTypeNames": [
+          "statistic"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "time_period",
+        "ProducerParameterName": "period",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  },
+  {
+    "consumer": {
+      "id": {
+        "RequestId": {
+          "endpoint": "/usa",
+          "method": "Get"
+        },
+        "ResourceReference": {
+          "QueryResource": "last_id"
+        },
+        "ContainerName": "usa",
+        "PathContainerName": "usa",
+        "CandidateTypeNames": [
+          "usa"
+        ],
+        "AccessPathParts": {
+          "path": []
+        },
+        "ResourceName": "last_id",
+        "ProducerParameterName": "id",
+        "IsNestedBodyResource": false,
+        "PrimitiveType": "String"
+      },
+      "parameterKind": "Query"
+    }
+  }
+]
