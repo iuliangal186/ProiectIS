@@ -56,7 +56,6 @@ def register_endpoints():
     mqtt_message_callbacks.append(umiditate.mqtt_on_message)
     mqtt_message_callbacks.append(motion.mqtt_on_message)
     mqtt_message_callbacks.append(weather.mqtt_on_message)
-    mqtt_message_callbacks.append(miscare.mqtt_on_message)
 
 
 def mqtt_message_pump():
