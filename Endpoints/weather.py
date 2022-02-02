@@ -19,7 +19,9 @@ def handler_get():
     return jsonify({
         "status": "API succesfully read",
         "temperature":weather_api.get_reference_temperature(),
-        "humidity":weather_api.get_reference_humidity()
+        "humidity":weather_api.get_reference_humidity(),
+        "pressure":weather_api.get_reference_pressure(),
+        "weather description": weather_api.get_reference_description()
     })
 
 
