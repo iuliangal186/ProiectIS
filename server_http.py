@@ -9,7 +9,8 @@ import json
 import sys
 import db
 
-app=Flask(__name__,template_folder="APIDocumentation")
+STATIC_FOLDER="APIDocumentation"
+app=Flask(__name__,template_folder=STATIC_FOLDER)
 app.config['MQTT_BROKER_URL'] = 'broker.emqx.io'  # use the free broker from HIVEMQ
 app.config['MQTT_BROKER_PORT'] = 1883  # default port for non-tls connection
 app.config['MQTT_USERNAME'] = 'emqx'  # set the username here if you need authentication for the broker
@@ -20,14 +21,18 @@ http_port="42178"
 
 @app.route("/")
 def main_route():
-    return "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>";
+    return "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>SeraSmart</a><br>\
+        Acceseaza api-ul documentat aici: <br>\
+            <a href='/openapi'>OpenAPI</a> cu <a href='/openapi.json'>json</a>\
+            <br>\
+            <a href='/asyncapi'>AsyncAPI</a> cu <a href='/asyncapi.json'>json</a>"
 
 @app.route("/openapi")
 def openapi_docs_route():
     return render_template("/OpenAPI/index.html", title = 'Main page')
 @app.route("/openapi.json")
 def openapi_route():
-    with open("Static/OpenAPI/openapi.yaml", 'r') as yaml_in:
+    with open(STATIC_FOLDER+"/OpenAPI/openapi.yaml", 'r') as yaml_in:
         yaml_object = yaml.safe_load(yaml_in) # yaml_object will be a list or a dict
         return json.dumps(yaml_object),200,{'Content-Type': 'application/json'}
 
@@ -45,7 +50,7 @@ def asyncapi_asyncapijs_route():
     return render_template("/AsyncAPI/js/asyncapi-ui.min.js", title = 'Main page'),200,{'Content-Type': 'text/javascript'}
 @app.route("/asyncapi.json")
 def asyncapi_route():
-    with open("Static/AsyncAPI/asyncapi.yaml", 'r') as yaml_in:
+    with open(STATIC_FOLDER+"/AsyncAPI/asyncapi.yaml", 'r') as yaml_in:
         yaml_object = yaml.safe_load(yaml_in) # yaml_object will be a list or a dict
         return json.dumps(yaml_object),200,{'Content-Type': 'application/json'}
 
