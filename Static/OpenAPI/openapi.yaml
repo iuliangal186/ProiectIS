@@ -145,6 +145,15 @@ components:
           type: string
           
           
+    WeatherResponse:
+      type: object
+      properties:
+        humidity:
+          type: number
+        status:
+          type: string
+        temperature:
+          type: number
           
           
   
@@ -340,3 +349,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MotionSensorStats'
+                
+                
+  /vreme:
+    get:
+      description: Preia vremea curenta ca o referinta
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WeatherResponse'
