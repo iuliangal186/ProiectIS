@@ -16,6 +16,11 @@ def get_status():
         'ORDER BY timestamp DESC'
     ).fetchone()
 
+    movement = get_db().execute(
+        'SELECT * FROM movement'
+        'ORDER BY timestamp DESC'
+    ).fetchone()
+
     if light is None:
         return {'status': 'Get light data'}
 
@@ -25,10 +30,14 @@ def get_status():
     if humidity is None:
         return {'status': 'Get humidity data'}
 
+    if movement is None:
+        return {'status': 'Get humidity data'}
+
     return {
         'data': {
             'light': light['timestamp'],
             'temperature': temperature['timestamp'],
-            'humidty': humidity['timestamp']
+            'humidty': humidity['timestamp'],
+            'movement': movement['timestamp']
         }
     }
