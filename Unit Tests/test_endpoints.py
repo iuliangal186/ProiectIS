@@ -67,8 +67,6 @@ def test_root_endpoint(client):
     assert "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>" in html
     assert landing.status_code == 200
 
-
-
 def test_temperature_sensor_values(client):
     landing = client.get("/temperatura/")
     data = json.loads(landing.data.decode())
@@ -163,6 +161,35 @@ def test_humidity_sensor_values(client):
 def test_humidity_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/umiditate/statistics")
+
+    assert landing.status_code == 400,"Page should return bad request"
+
+def test_movement_sensor_values(client):
+    landing = client.get("/miscare/")
+    data = json.loads(landing.data.decode())
+    assert "Sensor succesfully read" in data['status']
+    assert data['data']['id'] != 0
+    assert data['data']['value'] >= 0 and data['data']['value'] < 100
+    assert landing.status_code == 200
+
+    rand_nr = random.randint(0, 24)
+    landing = client.get("/miscare/statistics?time_period=" + str(rand_nr))
+    data = json.loads(landing.data.decode())
+
+    print(rand_nr, data)
+
+    assert "Data succesfully retrieved" in data['status']
+    if len(data['data']['history']) == 0:
+        assert (data['data']['average'] == None)
+    else:
+        assert data['data']['average'] > 0 and data['data']['average'] < 100
+        assert data['data']['average'] == sum(data['data']['history']) / len(data['data']['history'])
+
+    assert landing.status_code == 200
+
+def test_movement_sensor_noparam(client):
+    # Get a random sample between 0 hours and 24 hours
+    landing = client.get("/miscare/statistics")
 
     assert landing.status_code == 400,"Page should return bad request"
 

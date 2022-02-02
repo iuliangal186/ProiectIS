@@ -147,6 +147,7 @@ paths:
             application/json:
               schema: 
                 $ref: '#/components/schemas/SensorRead'
+
                 
   /temperatura/statistics:              
     get:
@@ -226,4 +227,33 @@ paths:
           content:
             application/json:
               schema: 
+                $ref: '#/components/schemas/SensorStats'
+
+  /miscare:
+    get:
+      description: Ia valoarea curenta a sensorului
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SensorRead'
+
+  /miscare/statistics:
+    get:
+      description: Compileaza un istoric
+      parameters:
+        - in: query
+          name: time_period
+          required: true
+          schema:
+            type: number
+          description: Perioada de timp al istoricului colectat
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
                 $ref: '#/components/schemas/SensorStats'
