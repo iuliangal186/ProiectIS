@@ -154,6 +154,10 @@ components:
           type: string
         temperature:
           type: number
+        description:
+          type: string
+        pressure:
+          type: number
           
           
   
@@ -289,8 +293,7 @@ paths:
             application/json:
               schema: 
                 $ref: '#/components/schemas/SensorStats'
-                
-                
+
   /umiditate:
     get:
       description: Ia valoarea curenta a sensorului 
