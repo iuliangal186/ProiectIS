@@ -119,3 +119,9 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 
 ## Membrii echipei:
 [Dudau Vlad](https://github.com/vladdudau)
+[Gal Iulian](https://github.com/iuliangal186)
+[Mindrescu Albert-Codrin](https://github.com/MindrescuAlbert)
+[Neculae Andrei-Sorin](https://github.com/sorinNgit)
+[Reznicencu Sergiu](https://github.com/AntonVonDelta)
+[Staicu Bogdan](https://github.com/StaicuBogdan)
+
