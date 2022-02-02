@@ -64,7 +64,7 @@ def mqtt_message_pump():
         # requires access to the db.
         with server_http.get_app().app_context():
             message = json.dumps(status.get_status(), default=str)
-        mqtt.publish("greenhouse/status", message)
+        get_mqtt_client().publish(root_topic+"status", message)
 
         if len(get_mqtt_queue()) == 0:
             time.sleep(1)
