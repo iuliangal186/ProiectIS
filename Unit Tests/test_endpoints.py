@@ -168,6 +168,8 @@ def test_humidity_sensor_noparam(client):
 
     assert landing.status_code == 400,"Page should return bad request"
 
+
+
 def test_movement_sensor_values(client):
     landing = client.get("/miscare/")
     assert landing.status_code == 200
@@ -185,7 +187,6 @@ def test_movement_sensor_values(client):
     assert landing.status_code == 200
 
     data = json.loads(landing.data.decode())
-
     print(rand_nr, data)
 
     assert "Data succesfully retrieved" in data['status']
@@ -204,7 +205,7 @@ def test_movement_sensor_noparam(client):
 
 
 
-def test_window_gadget(client):
+def test_gadget_window_values(client):
     # Test if requesting a large id will result in error
     landing = client.get("/fereastra/?last_id=1000")
     assert landing.status_code == 200,"Page should return success"
@@ -229,14 +230,14 @@ def test_window_gadget(client):
     data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
-def test_window_gadget_noparam(client):
+def test_gadget_window_noparam(client):
     # Test if a missing param will result in error
     landing = client.get("/fereastra/")
     assert landing.status_code == 400,"Page should return bad request"
 
 
 
-def test_door_gadget(client):
+def test_gadget_door_values(client):
     # Test if requesting a large id will result in error
     landing = client.get("/usa/?last_id=1000")
     assert landing.status_code == 200,"Page should return success"
@@ -261,7 +262,7 @@ def test_door_gadget(client):
     data = json.loads(landing.data.decode())
     assert "There are no new events registered" in data["status"]
 
-def test_door_gadget_noparam(client):
+def test_gadget_door_noparam(client):
     # Test if a missing param will result in error
     landing = client.get("/fereastra/")
     assert landing.status_code == 400,"Page should return bad request"
