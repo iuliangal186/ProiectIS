@@ -119,14 +119,198 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:42178/temperatura",
+					"raw": "http://localhost:42178/temperatura/",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "42178",
 					"path": [
-						"temperatura"
+						"temperatura",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Temperatura Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/temperatura/statistics?time_period=0.002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"temperatura",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "time_period",
+							"value": "0.002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Motion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/miscare/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"miscare",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Motion Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/miscare/statistics?time_period=0.002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"miscare",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "time_period",
+							"value": "0.002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Light",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/lumina/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"lumina",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Light Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/lumina/statistics?time_period=0.002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"lumina",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "time_period",
+							"value": "0.002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Humidity",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/umiditate/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"umiditate",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Humidity Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/umiditate/statistics?time_period=0.002",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"umiditate",
+						"statistics"
+					],
+					"query": [
+						{
+							"key": "time_period",
+							"value": "0.002"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Weather",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:42178/vreme",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "42178",
+					"path": [
+						"vreme"
 					]
 				}
 			},
