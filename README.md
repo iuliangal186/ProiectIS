@@ -2,7 +2,8 @@
 O sera inteligenta cu control de la distanta si integrare cu mqtt!
 Acest proiect iti ofera posibilitatea de a seta senzori de `temperatura`, `umiditate`, `lumina`, `miscare` in propia sera si de a-i monitoriza de la distanta. Iar atunci cand valori depasesc un prag sau se doreste modificarea mediului intern se pot efectua de la distanta doua actiuni: `deschiderea usii` pentru o ventilatie mai buna sau `a geamului` pentru controlul luminii si a umiditatii.
 
-## Proiect realizat cu:
+
+#### Proiect realizat cu:
 - [Python 3.7](https://www.python.org/downloads/release/python-370/)
 - [Flask](https://flask.palletsprojects.com/en/2.0.x/)
 - [Mosquitto](https://mosquitto.org/download/)
@@ -12,7 +13,17 @@ Acest proiect iti ofera posibilitatea de a seta senzori de `temperatura`, `umidi
 - [PyYAML](https://pyyaml.org/)
 - [SQLite](https://www.sqlite.org/docs.html)
 
-## Initializare unelte
+#### Documentatia pentru http si mqtt se poate accesa la adresele:
+- http://localhost:42178/openapi
+- http://localhost:42178/asyncapi
+
+#### Schemele protocoalelor se pot accesa aici:
+- http://localhost:42178/openapi.json 
+- http://localhost:42178/asyncapi.json
+
+
+
+## Instalare
 Instaleaza pachetele `py -3.7 -m pip install flask pytest coverage pyyaml`
 
 ## Executia programului
