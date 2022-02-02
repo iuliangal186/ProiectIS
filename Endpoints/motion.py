@@ -36,7 +36,7 @@ def handler_get():
             "timestamp":last_event["timestamp"],
             "area":last_event["area"],
             "duration":last_event["duration"],
-            "value":last_event["value"]
+            "strength":last_event["value"]
         }
     })
 

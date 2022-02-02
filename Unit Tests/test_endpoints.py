@@ -178,7 +178,7 @@ def test_movement_sensor_values(client):
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id'] != 0
-    assert data['data']['value'] >= 0 and data['data']['value'] <=1
+    assert data['data']['strength'] >= 0 and data['data']['strength'] <=1
     assert data['data']['area'] >= 0 and data['data']['area'] <=5
     assert data['data']['duration'] >= 1 and data['data']['duration'] <=50
 
@@ -190,11 +190,13 @@ def test_movement_sensor_values(client):
     print(rand_nr, data)
 
     assert "Data succesfully retrieved" in data['status']
-    if len(data['data']['history']) == 0:
-        assert (data['data']['average'] == None)
-    else:
-        assert data['data']['average'] > 0 and data['data']['average'] < 100
-        assert data['data']['average'] == sum(data['data']['history']) / len(data['data']['history'])
+    if len(data['data']['history']) != 0:
+        for i in range(len(data['data']['history'])):
+            entry=data["data"]["history"][i]
+            assert entry['strength'] >= 0 and entry['strength'] <=1
+            assert entry['area'] >= 0 and entry['area'] <=5
+            assert entry['duration'] >= 1 and entry['duration'] <=50
+
 
 
 def test_movement_sensor_noparam(client):
