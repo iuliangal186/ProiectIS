@@ -12,5 +12,7 @@ Schemele protocoalelor se pot accesa aici:
 
 **Generate the asyncapi html page from here**: https://playground.asyncapi.io/
 
+<h6>
 Or if it doesn't load use the nodejs package: https://github.com/asyncapi/generator
 and execute command: `ag.cmd asyncapi.yaml https://github.com/asyncapi/html-template`
+</h6>
