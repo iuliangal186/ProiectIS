@@ -1,6 +1,15 @@
-**Document de analiză a cerințelor clientului**
-
 **Sera Smart – Echipa 17**
+
+## Proiect realizat cu:
+[Python 3.7](https://www.python.org/downloads/release/python-370/)
+[Flask](https://flask.palletsprojects.com/en/2.0.x/)
+[Mosquitto](https://mosquitto.org/download/)
+[OpenAPI Specs](https://openap.is/)
+[Pytest](https://docs.pytest.org/en/6.2.x/)
+[PyYAML](https://pyyaml.org/)
+[SQLite](https://www.sqlite.org/docs.html)
+
+
 ## Cum rulez programul:
 Mai intai se creeaza baza de date:
 - ``py -3.7 app.py init-db``
@@ -9,6 +18,8 @@ Mai intai se creeaza baza de date:
 Se executa prin comenzile:
 - ``py -3.7 app.py``
 - ``python app.py``
+
+**Document de analiză a cerințelor clientului**
 
 ## Scopul aplicației: 
 *Aplicatia are ca scop modificarea serei traditionale prin automatizarea acesteia, folosindu-se de date de natura variabila pe care le preia din mediul inconjurator (lumina, temperatura, umiditate etc.). Aceasta aplicatie poate fi rulata si parametrii pot fi modificati de catre utilizator remote prin intermediul telefonului/desktopului si va oferi un feedback in timp real a conditiilor din sera.*
