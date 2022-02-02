@@ -1,7 +1,8 @@
 CREATE TABLE temperature (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  value REAL NOT NULL
+  value REAL NOT NULL,
+  reference_value NOT NULL    /* The value returned by a reliable source e.g external API */
 );
 
 CREATE TABLE humidity (
@@ -21,7 +22,7 @@ CREATE TABLE motion (
   timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   area INTEGER NOT NULL,
   duration INTEGER NOT NULL,
-  value REAL NOT NULL       /*  A value which indicates the magnitude of the movement/ or just 0 and 1 for true or false*/
+  value REAL NOT NULL       /*  A value which indicates the magnitude of the motion/ or just 0 and 1 for true or false*/
 );
 
 CREATE TABLE events (

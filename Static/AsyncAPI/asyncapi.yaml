@@ -29,8 +29,8 @@ channels:
       message:
         description: Sets the sensor value
         $ref: '#/components/messages/message_sensor_publish'
-  /greenhouse/movement:
-    description: Movement sensor endpoint
+  /greenhouse/motion:
+    description: Motion sensor endpoint
     publish:
       message:
         description: Sets the sensor value

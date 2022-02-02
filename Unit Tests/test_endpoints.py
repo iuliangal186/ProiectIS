@@ -170,7 +170,7 @@ def test_humidity_sensor_noparam(client):
 
 
 
-def test_movement_sensor_values(client):
+def test_motion_sensor_values(client):
     landing = client.get("/miscare/")
     assert landing.status_code == 200
 
@@ -199,7 +199,7 @@ def test_movement_sensor_values(client):
 
 
 
-def test_movement_sensor_noparam(client):
+def test_motion_sensor_noparam(client):
     # Get a random sample between 0 hours and 24 hours
     landing = client.get("/miscare/statistics")
 

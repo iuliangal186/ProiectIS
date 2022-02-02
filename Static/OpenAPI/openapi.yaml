@@ -64,6 +64,89 @@ components:
         status:
           type: string
           
+          
+    ReferencedSensorRead:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            timestamp:
+              type: string
+            value:
+              type: number
+            reference_value:
+              type: number
+        status:
+          type: string
+          
+    ReferencedSensorStats:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            average:
+              type: number
+            history:
+              type: array
+              items: 
+                type: object
+                properties:
+                  value:
+                    type: number
+                  reference_value:
+                    type: number
+        status:
+          type: string
+          
+          
+    MotionSensorRead:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            id:
+              type: integer
+            timestamp:
+              type: string
+            area:
+              type: integer
+            duration:
+              type: integer
+            strength:
+              type: number
+        status:
+          type: string
+          
+    MotionSensorStats:
+      type: object
+      properties:
+        data:
+          type: object
+          properties:
+            history:
+              type: array
+              items: 
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                  area:
+                    type: integer
+                  duration:
+                    type: integer
+                  strength:
+                    type: number
+        status:
+          type: string
+          
+          
+          
+          
   
 paths:
   /fereastra:
@@ -146,7 +229,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/SensorRead'
+                $ref: '#/components/schemas/ReferencedSensorRead'
 
                 
   /temperatura/statistics:              
@@ -165,7 +248,7 @@ paths:
           content:
             application/json:
               schema: 
-                $ref: '#/components/schemas/SensorStats'
+                $ref: '#/components/schemas/ReferencedSensorStats'
                 
                 
   /lumina:
@@ -238,7 +321,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SensorRead'
+                $ref: '#/components/schemas/MotionSensorRead'
 
   /miscare/statistics:
     get:
@@ -256,4 +339,4 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SensorStats'
+                $ref: '#/components/schemas/MotionSensorStats'
