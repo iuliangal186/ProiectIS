@@ -76,7 +76,8 @@ def test_temperature_sensor_values(client):
 
     assert "Sensor succesfully read" in data['status']
     assert data['data']['id']!=0
-    assert data['data']['value']>=0 and data['data']['value']<100
+    assert data['data']['value']>=-100 and data['data']['value']<100, "Temperatura nu e valida"
+    assert data['data']['reference_value']>=-100 and data['data']['reference_value']<100, "Temperatura nu e valida"
 
     # Get a random sample between 0 hours and 24 hours
     rand_nr=random.randint(0,24)
@@ -88,10 +89,17 @@ def test_temperature_sensor_values(client):
 
     assert "Data succesfully retrieved" in data['status']
     if len(data['data']['history'])==0:
-        assert(data['data']['average']==None)
+        assert data['data']['average']==None
     else:
-        assert data['data']['average']>0 and data['data']['average']<100
-        assert data['data']['average']==sum(data['data']['history'])/len(data['data']['history'])
+        sum=0
+        for i in range(len(data['data']['history'])):
+            entry=data['data']['history'][i]
+            sum+=entry["value"]
+
+            assert entry["value"]>-100 and entry["value"]<100
+            assert entry["reference_value"]>-100 and entry["reference_value"]<100
+
+        assert data['data']['average']==sum/len(data['data']['history'])
 
 
 def test_temperature_sensor_noparam(client):
@@ -271,17 +279,19 @@ def test_gadget_door_noparam(client):
 
 
 
-def test_post_temperature(client):
-    request = client.post("/temperatura")
-    assert request.status_code == 405
 
-def test_post_humidity(client):
-    request = client.post("/umiditate")
-    assert request.status_code == 405
+def test_weather_values(client):
+    # Test if returned values are normal
+    landing = client.get("/vreme/")
+    assert landing.status_code == 200,"Page should return success"
 
-def test_post_light(client):
-    request = client.post("/lumina")
-    assert request.status_code == 405
+    data = json.loads(landing.data.decode())
+    assert "API succesfully read" in data["status"]
+    assert data["humidity"]>=0 and data["humidity"]<100
+    assert data["temperature"]>-100 and data["temperature"]<100
+
+
+
 
 
 
