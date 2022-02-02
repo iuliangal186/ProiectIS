@@ -279,17 +279,19 @@ def test_gadget_door_noparam(client):
 
 
 
-def test_post_temperature(client):
-    request = client.post("/temperatura")
-    assert request.status_code == 405
 
-def test_post_humidity(client):
-    request = client.post("/umiditate")
-    assert request.status_code == 405
+def test_weather_values(client):
+    # Test if returned values are normal
+    landing = client.get("/vreme/")
+    assert landing.status_code == 200,"Page should return success"
 
-def test_post_light(client):
-    request = client.post("/lumina")
-    assert request.status_code == 405
+    data = json.loads(landing.data.decode())
+    assert "API succesfully read" in data["status"]
+    assert data["humidity"]>=0 and data["humidity"]<100
+    assert data["temperature"]>-100 and data["temperature"]<100
+
+
+
 
 
 
