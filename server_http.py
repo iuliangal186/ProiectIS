@@ -34,6 +34,15 @@ def openapi_route():
 @app.route("/asyncapi")
 def asyncapi_docs_route():
     return render_template("/AsyncAPI/index.html", title = 'Main page')
+@app.route("/css/global.min.css")
+def asyncapi_globalcss_route():
+    return render_template("/AsyncAPI/css/global.min.css", title = 'Main page'),200,{'Content-Type': 'text/css'}
+@app.route("/css/asyncapi.min.css")
+def asyncapi_asyncapicss_route():
+    return render_template("/AsyncAPI/css/asyncapi.min.css", title = 'Main page'),200,{'Content-Type': 'text/css'}
+@app.route("/js/asyncapi-ui.min.js")
+def asyncapi_asyncapijs_route():
+    return render_template("/AsyncAPI/js/asyncapi-ui.min.js", title = 'Main page'),200,{'Content-Type': 'text/javascript'}
 @app.route("/asyncapi.json")
 def asyncapi_route():
     with open("Static/AsyncAPI/asyncapi.yaml", 'r') as yaml_in:
