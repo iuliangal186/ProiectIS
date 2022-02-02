@@ -67,7 +67,7 @@ Aplicatia se adreseaza agricultorilor, dar si amatorilor pasionati de legumicult
 
 **PERFORMANTA** 
 
-- folosirea unui numar minim de senzori de temperatura, umiditate, lumina.
+- folosirea unui numar minim de senzori de temperatura, umiditate, lumina, miscare.
 - performanta sistemului nu este critica.
 
 **FUNCTIONABILITATE**
