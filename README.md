@@ -1,13 +1,13 @@
 **Sera Smart – Echipa 17**
 
 ## Proiect realizat cu:
-[Python 3.7](https://www.python.org/downloads/release/python-370/)
-[Flask](https://flask.palletsprojects.com/en/2.0.x/)
-[Mosquitto](https://mosquitto.org/download/)
-[OpenAPI Specs](https://openap.is/)
-[Pytest](https://docs.pytest.org/en/6.2.x/)
-[PyYAML](https://pyyaml.org/)
-[SQLite](https://www.sqlite.org/docs.html)
+- [Python 3.7](https://www.python.org/downloads/release/python-370/)
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [Mosquitto](https://mosquitto.org/download/)
+- [OpenAPI Specs](https://openap.is/)
+- [Pytest](https://docs.pytest.org/en/6.2.x/)
+- [PyYAML](https://pyyaml.org/)
+- [SQLite](https://www.sqlite.org/docs.html)
 
 
 ## Cum rulez programul:
