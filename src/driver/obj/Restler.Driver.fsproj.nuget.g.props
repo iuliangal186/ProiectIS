@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Sorin\.nuget\packages\</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.11.1</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\Sorin\.nuget\packages\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Content Include="$(NuGetPackageRoot)microsoft.fsharplu\0.11.6\contentFiles\any\netstandard2.0\Sysprep.ps1" Condition="Exists('$(NuGetPackageRoot)microsoft.fsharplu\0.11.6\contentFiles\any\netstandard2.0\Sysprep.ps1')">
+      <NuGetPackageId>Microsoft.FSharpLu</NuGetPackageId>
+      <NuGetPackageVersion>0.11.6</NuGetPackageVersion>
+      <NuGetItemType>Content</NuGetItemType>
+      <Pack>false</Pack>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <TargetPath>Sysprep.ps1</TargetPath>
+      <Private>True</Private>
+      <Link>Sysprep.ps1</Link>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\Sorin\.nuget\packages\fsharp.core\4.7.2</PkgFSharp_Core>
+    <PkgMicrosoft_FSharpLu_Json Condition=" '$(PkgMicrosoft_FSharpLu_Json)' == '' ">C:\Users\Sorin\.nuget\packages\microsoft.fsharplu.json\0.11.6</PkgMicrosoft_FSharpLu_Json>
+    <PkgMicrosoft_FSharpLu Condition=" '$(PkgMicrosoft_FSharpLu)' == '' ">C:\Users\Sorin\.nuget\packages\microsoft.fsharplu\0.11.6</PkgMicrosoft_FSharpLu>
+    <PkgMicrosoft_FSharpLu_Windows Condition=" '$(PkgMicrosoft_FSharpLu_Windows)' == '' ">C:\Users\Sorin\.nuget\packages\microsoft.fsharplu.windows\0.11.6</PkgMicrosoft_FSharpLu_Windows>
+  </PropertyGroup>
+</Project>

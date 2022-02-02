@@ -1,0 +1,199 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\driver\\Restler.Driver.fsproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\Restler.Compiler.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\Restler.Compiler.fsproj",
+        "projectName": "Restler.Compiler",
+        "projectPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\Restler.Compiler.fsproj",
+        "packagesPath": "C:\\Users\\Sorin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sorin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU1603"
+          ]
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true",
+          "restoreLockedMode": true
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[4.7.2, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.ApplicationInsights": {
+              "target": "Package",
+              "version": "[2.14.0, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.FSharpLu": {
+              "target": "Package",
+              "version": "[0.11.6, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.FSharpLu.Json": {
+              "target": "Package",
+              "version": "[0.11.6, )",
+              "generatePathProperty": true
+            },
+            "NJsonSchema": {
+              "target": "Package",
+              "version": "[10.0.27, )",
+              "generatePathProperty": true
+            },
+            "NSwag.Core": {
+              "target": "Package",
+              "version": "[13.1.3, )",
+              "generatePathProperty": true
+            },
+            "NSwag.Core.Yaml": {
+              "target": "Package",
+              "version": "[13.1.3, )",
+              "generatePathProperty": true
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[11.0.2, )",
+              "generatePathProperty": true
+            },
+            "Pluralize.NET.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\driver\\Restler.Driver.fsproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\driver\\Restler.Driver.fsproj",
+        "projectName": "Restler",
+        "projectPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\driver\\Restler.Driver.fsproj",
+        "packagesPath": "C:\\Users\\Sorin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\driver\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Sorin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "netcoreapp5.0",
+            "projectReferences": {
+              "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\Restler.Compiler.fsproj": {
+                "projectPath": "C:\\Users\\Sorin\\Desktop\\ANUL 3\\SEM 1\\Inginerie Software\\3\\ProiectIS\\src\\compiler\\Restler.Compiler\\Restler.Compiler.fsproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "noWarn": [
+            "NU1603"
+          ]
+        },
+        "restoreLockProperties": {
+          "restorePackagesWithLockFile": "true",
+          "restoreLockedMode": true
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "netcoreapp5.0",
+          "dependencies": {
+            "FSharp.Core": {
+              "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
+              "target": "Package",
+              "version": "[4.7.2, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.FSharpLu": {
+              "target": "Package",
+              "version": "[0.11.6, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.FSharpLu.Json": {
+              "target": "Package",
+              "version": "[0.11.6, )",
+              "generatePathProperty": true
+            },
+            "Microsoft.FSharpLu.Windows": {
+              "target": "Package",
+              "version": "[0.11.6, )",
+              "generatePathProperty": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
