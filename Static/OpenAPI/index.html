@@ -199,6 +199,8 @@
   <li><a href="#fereastraPost"><code><span class="http-method">post</span> /fereastra</code></a></li>
   <li><a href="#luminaGet"><code><span class="http-method">get</span> /lumina</code></a></li>
   <li><a href="#luminaStatisticsGet"><code><span class="http-method">get</span> /lumina/statistics</code></a></li>
+  <li><a href="#miscareGet"><code><span class="http-method">get</span> /miscare</code></a></li>
+  <li><a href="#miscareStatisticsGet"><code><span class="http-method">get</span> /miscare/statistics</code></a></li>
   <li><a href="#temperaturaGet"><code><span class="http-method">get</span> /temperatura</code></a></li>
   <li><a href="#temperaturaStatisticsGet"><code><span class="http-method">get</span> /temperatura/statistics</code></a></li>
   <li><a href="#umiditateGet"><code><span class="http-method">get</span> /umiditate</code></a></li>
@@ -402,6 +404,111 @@
         <a href="#SensorStats">SensorStats</a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="miscareGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /miscare</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">miscareGet</span>)</div>
+    <div class="method-notes">Ia valoarea curenta a sensorului</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#MotionSensorRead">MotionSensorRead</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "area" : 6,
+    "duration" : 1,
+    "strength" : 5.962133916683182,
+    "id" : 0,
+    "timestamp" : "timestamp"
+  },
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#MotionSensorRead">MotionSensorRead</a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="miscareStatisticsGet"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /miscare/statistics</code></pre></div>
+    <div class="method-summary"> (<span class="nickname">miscareStatisticsGet</span>)</div>
+    <div class="method-notes">Compileaza un istoric</div>
+
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">time_period (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Perioada de timp al istoricului colectat </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#MotionSensorStats">MotionSensorStats</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "data" : {
+    "history" : [ {
+      "area" : 0,
+      "duration" : 6,
+      "strength" : 1.4658129805029452,
+      "timestamp" : "timestamp"
+    }, {
+      "area" : 0,
+      "duration" : 6,
+      "strength" : 1.4658129805029452,
+      "timestamp" : "timestamp"
+    } ]
+  },
+  "status" : "status"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    OK
+        <a href="#MotionSensorStats">MotionSensorStats</a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="temperaturaGet"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -417,7 +524,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#SensorRead">SensorRead</a>
+      <a href="#ReferencedSensorRead">ReferencedSensorRead</a>
       
     </div>
 
@@ -427,6 +534,7 @@
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
   "data" : {
+    "reference_value" : 1.4658129805029452,
     "id" : 0,
     "value" : 6.027456183070403,
     "timestamp" : "timestamp"
@@ -444,7 +552,7 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#SensorRead">SensorRead</a>
+        <a href="#ReferencedSensorRead">ReferencedSensorRead</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="temperaturaStatisticsGet"></a>
@@ -467,7 +575,7 @@
 
     <h3 class="field-label">Return type</h3>
     <div class="return-type">
-      <a href="#SensorStats">SensorStats</a>
+      <a href="#ReferencedSensorStats">ReferencedSensorStats</a>
       
     </div>
 
@@ -478,7 +586,13 @@
     <pre class="example"><code>{
   "data" : {
     "average" : 0.8008281904610115,
-    "history" : [ 6.027456183070403, 6.027456183070403 ]
+    "history" : [ {
+      "reference_value" : 1.4658129805029452,
+      "value" : 6.027456183070403
+    }, {
+      "reference_value" : 1.4658129805029452,
+      "value" : 6.027456183070403
+    } ]
   },
   "status" : "status"
 }</code></pre>
@@ -493,7 +607,7 @@
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
     OK
-        <a href="#SensorStats">SensorStats</a>
+        <a href="#ReferencedSensorStats">ReferencedSensorStats</a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="umiditateGet"></a>
@@ -700,6 +814,16 @@
     <li><a href="#GadgetReadResponse_data"><code>GadgetReadResponse_data</code></a></li>
     <li><a href="#GadgetWrite"><code>GadgetWrite</code></a></li>
     <li><a href="#GadgetWriteResponse"><code>GadgetWriteResponse</code></a></li>
+    <li><a href="#MotionSensorRead"><code>MotionSensorRead</code></a></li>
+    <li><a href="#MotionSensorRead_data"><code>MotionSensorRead_data</code></a></li>
+    <li><a href="#MotionSensorStats"><code>MotionSensorStats</code></a></li>
+    <li><a href="#MotionSensorStats_data"><code>MotionSensorStats_data</code></a></li>
+    <li><a href="#MotionSensorStats_data_history"><code>MotionSensorStats_data_history</code></a></li>
+    <li><a href="#ReferencedSensorRead"><code>ReferencedSensorRead</code></a></li>
+    <li><a href="#ReferencedSensorRead_data"><code>ReferencedSensorRead_data</code></a></li>
+    <li><a href="#ReferencedSensorStats"><code>ReferencedSensorStats</code></a></li>
+    <li><a href="#ReferencedSensorStats_data"><code>ReferencedSensorStats_data</code></a></li>
+    <li><a href="#ReferencedSensorStats_data_history"><code>ReferencedSensorStats_data_history</code></a></li>
     <li><a href="#SensorRead"><code>SensorRead</code></a></li>
     <li><a href="#SensorRead_data"><code>SensorRead_data</code></a></li>
     <li><a href="#SensorStats"><code>SensorStats</code></a></li>
@@ -735,6 +859,92 @@
     
     <div class="field-items">
       <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MotionSensorRead"><code>MotionSensorRead</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#MotionSensorRead_data">MotionSensorRead_data</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MotionSensorRead_data"><code>MotionSensorRead_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">area (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">strength (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MotionSensorStats"><code>MotionSensorStats</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#MotionSensorStats_data">MotionSensorStats_data</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MotionSensorStats_data"><code>MotionSensorStats_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">history (optional)</div><div class="param-desc"><span class="param-type"><a href="#MotionSensorStats_data_history">array[MotionSensorStats_data_history]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="MotionSensorStats_data_history"><code>MotionSensorStats_data_history</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">area (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">duration (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">strength (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReferencedSensorRead"><code>ReferencedSensorRead</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReferencedSensorRead_data">ReferencedSensorRead_data</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReferencedSensorRead_data"><code>ReferencedSensorRead_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">timestamp (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">reference_value (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReferencedSensorStats"><code>ReferencedSensorStats</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">data (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReferencedSensorStats_data">ReferencedSensorStats_data</a></span>  </div>
+<div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReferencedSensorStats_data"><code>ReferencedSensorStats_data</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">average (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">history (optional)</div><div class="param-desc"><span class="param-type"><a href="#ReferencedSensorStats_data_history">array[ReferencedSensorStats_data_history]</a></span>  </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="ReferencedSensorStats_data_history"><code>ReferencedSensorStats_data_history</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">value (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
+<div class="param">reference_value (optional)</div><div class="param-desc"><span class="param-type"><a href="#BigDecimal">BigDecimal</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
