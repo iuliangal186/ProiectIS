@@ -46,12 +46,13 @@ def asyncapi_route():
 def register_endpoints():
     # Python is completely crippled by the circular dependencies
     # Define dependecies here locally as we only need this single variable bp
-    from Endpoints import fereastra, usa, temperatura, lumina, umiditate, weather, miscare
+    from Endpoints import fereastra,usa,temperatura,lumina,umiditate,motion,weather
     app.register_blueprint(fereastra.bp)
     app.register_blueprint(usa.bp)
     app.register_blueprint(temperatura.bp)
     app.register_blueprint(lumina.bp)
     app.register_blueprint(umiditate.bp)
+    app.register_blueprint(motion.bp)
     app.register_blueprint(weather.bp)
     app.register_blueprint(miscare.bp)
 
