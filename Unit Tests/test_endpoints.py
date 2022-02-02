@@ -68,7 +68,7 @@ def test_root_endpoint(client):
 
     html = landing.data.decode()
 
-    assert "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>Smart</a>" in html
+    assert "SeraSmart IoT implementare. Citeste mai multe la <a href='https://github.com/iuliangal186/ProiectIS'>SeraSmart</a>" in html
 
 
 def test_temperature_sensor_values(client):
