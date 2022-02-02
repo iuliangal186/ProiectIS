@@ -9,7 +9,7 @@ import json
 import sys
 import db
 
-app=Flask(__name__,template_folder="Static")
+app=Flask(__name__,template_folder="APIDocumentation")
 app.config['MQTT_BROKER_URL'] = 'broker.emqx.io'  # use the free broker from HIVEMQ
 app.config['MQTT_BROKER_PORT'] = 1883  # default port for non-tls connection
 app.config['MQTT_USERNAME'] = 'emqx'  # set the username here if you need authentication for the broker
