@@ -60,6 +60,12 @@ def register_endpoints():
 def mqtt_message_pump():
     global mqqt_commands_queue
     while True:
+        # Using app context is required because the get_status() functions
+        # requires access to the db.
+        with server_http.get_app().app_context():
+            message = json.dumps(status.get_status(), default=str)
+        get_mqtt_client().publish(root_topic+"status", message)
+
         if len(get_mqtt_queue()) == 0:
             time.sleep(1)
             continue
@@ -71,18 +77,6 @@ def run_mqtt_server():
     thread = Thread(target=mqtt_message_pump)
     thread.daemon = True
     thread.start()
-
-#MQTT Publishing 
-def background_thread():
-    count = 0
-    while True:
-        time.sleep(1)
-        # Using app context is required because the get_status() functions
-        # requires access to the db.
-        with server_http.get_app.app_context():
-            message = json.dumps(status.get_status(), default=str)
-        # Publish
-        mqtt.publish('greenhouse/mqtt', message)
 
 
 def init_mqtt():
