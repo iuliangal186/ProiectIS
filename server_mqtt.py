@@ -82,7 +82,7 @@ def background_thread():
         with server_http.get_app.app_context():
             message = json.dumps(status.get_status(), default=str)
         # Publish
-        mqtt.publish('python/mqtt', message)
+        mqtt.publish('greenhouse/mqtt', message)
 
 
 def init_mqtt():
