@@ -1,0 +1,282 @@
+Setting fuzzing schemes: directed-smoke-test
+2022-02-03 03:19:45.339: Going to fuzz a set with 13 requests
+2022-02-03 03:19:45.339: Request-0: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-1: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-2: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-3: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-4: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-5: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-6: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-7: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-8: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-9: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-10: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-11: Value Combinations: 1
+2022-02-03 03:19:45.339: Request-12: Value Combinations: 1
+2022-02-03 03:19:45.339: Avg. Value Combinations per Request: 1
+2022-02-03 03:19:45.339: Median Value Combinations per Request: 1
+2022-02-03 03:19:45.339: Min Value Combinations per Request: 1
+2022-02-03 03:19:45.339: Max Value Combinations per Request: 1
+2022-02-03 03:19:45.339: Total dependencies: 0
+
+2022-02-03 03:19:45.341: Generation: 1 / Sequences Collection Size: 13 
+(After directed-smoke-test Extend)
+
+Rendering request 0 from scratch
+
+2022-02-03 03:19:45.388: Request 0
+2022-02-03 03:19:45.388: Endpoint - /lumina/statistics
+2022-02-03 03:19:45.388: Hex Def - 4717a7643c0be1c9c8b3639a72f1e318231dd1a2
+2022-02-03 03:19:45.388: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.393: Rendering VALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'lumina'
+		- restler_static_string: '/'
+		- restler_static_string: 'statistics'
+		- restler_static_string: '?'
+		- restler_static_string: 'time_period='
+		- restler_fuzzable_number: '1.23'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 1 from scratch
+
+2022-02-03 03:19:45.460: Request 1
+2022-02-03 03:19:45.460: Endpoint - /fereastra
+2022-02-03 03:19:45.460: Hex Def - 4a254c85e15822898bbd4cb4bbdd4d71824fe9c0
+2022-02-03 03:19:45.460: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.464: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'fereastra'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 2 from scratch
+
+2022-02-03 03:19:45.544: Request 2
+2022-02-03 03:19:45.544: Endpoint - /miscare/statistics
+2022-02-03 03:19:45.544: Hex Def - 5dadd2ebbfb2edddf123661dfdccefc61822942b
+2022-02-03 03:19:45.544: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.549: Rendering VALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'miscare'
+		- restler_static_string: '/'
+		- restler_static_string: 'statistics'
+		- restler_static_string: '?'
+		- restler_static_string: 'time_period='
+		- restler_fuzzable_number: '1.23'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 3 from scratch
+
+2022-02-03 03:19:45.637: Request 3
+2022-02-03 03:19:45.637: Endpoint - /miscare
+2022-02-03 03:19:45.637: Hex Def - 797ae930a80e8fd11da6f405ea82e27a823124a9
+2022-02-03 03:19:45.637: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.644: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'miscare'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 4 from scratch
+
+2022-02-03 03:19:45.736: Request 4
+2022-02-03 03:19:45.736: Endpoint - garbage
+2022-02-03 03:19:45.736: Hex Def - 908cc827a19d8577c282eac4de2eeafce8fde264
+2022-02-03 03:19:45.736: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.741: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'garbage'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 5 from scratch
+
+2022-02-03 03:19:45.823: Request 5
+2022-02-03 03:19:45.823: Endpoint - /lumina
+2022-02-03 03:19:45.823: Hex Def - 937d4e043d93f0fc4a0a3fc52ec76634c91d26ad
+2022-02-03 03:19:45.823: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.828: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'lumina'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 6 from scratch
+
+2022-02-03 03:19:45.905: Request 6
+2022-02-03 03:19:45.905: Endpoint - /umiditate
+2022-02-03 03:19:45.905: Hex Def - a3ee3ce94401483492f310ecc8b6e57f92a6cf75
+2022-02-03 03:19:45.905: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:45.910: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'umiditate'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 7 from scratch
+
+2022-02-03 03:19:46.000: Request 7
+2022-02-03 03:19:46.000: Endpoint - /vreme
+2022-02-03 03:19:46.000: Hex Def - aa8d42551b51554b15af0c878ef7dc5467edc1d2
+2022-02-03 03:19:46.000: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.005: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'vreme'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 8 from scratch
+
+2022-02-03 03:19:46.097: Request 8
+2022-02-03 03:19:46.097: Endpoint - /umiditate/statistics
+2022-02-03 03:19:46.097: Hex Def - cf122ae7fbf9ff389f2d76db7346e802739148d6
+2022-02-03 03:19:46.097: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.104: Rendering VALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'umiditate'
+		- restler_static_string: '/'
+		- restler_static_string: 'statistics'
+		- restler_static_string: '?'
+		- restler_static_string: 'time_period='
+		- restler_fuzzable_number: '1.23'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 9 from scratch
+
+2022-02-03 03:19:46.197: Request 9
+2022-02-03 03:19:46.197: Endpoint - /temperatura/statistics
+2022-02-03 03:19:46.197: Hex Def - d291f4ce26ac18c03005f8a547462851b95783c0
+2022-02-03 03:19:46.197: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.204: Rendering VALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'temperatura'
+		- restler_static_string: '/'
+		- restler_static_string: 'statistics'
+		- restler_static_string: '?'
+		- restler_static_string: 'time_period='
+		- restler_fuzzable_number: '1.23'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 10 from scratch
+
+2022-02-03 03:19:46.286: Request 10
+2022-02-03 03:19:46.286: Endpoint - /usa
+2022-02-03 03:19:46.286: Hex Def - eb0b1c883edb64f23c31e0d83b09b2fba1ee6841
+2022-02-03 03:19:46.286: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.291: Rendering INVALID
+		- restler_static_string: 'POST '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'usa'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 11 from scratch
+
+2022-02-03 03:19:46.366: Request 11
+2022-02-03 03:19:46.366: Endpoint - /fereastra
+2022-02-03 03:19:46.366: Hex Def - f253387ba963341f07d13c8dbc35a8bae0bcb188
+2022-02-03 03:19:46.366: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.371: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'fereastra'
+		- restler_static_string: '?'
+		- restler_static_string: 'last_id='
+		- restler_fuzzable_int: '1'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+Rendering request 12 from scratch
+
+2022-02-03 03:19:46.478: Request 12
+2022-02-03 03:19:46.478: Endpoint - /usa
+2022-02-03 03:19:46.478: Hex Def - f82fcd6eaf20f2a418a6ae0244ecbf1e64d9b720
+2022-02-03 03:19:46.478: Sequence length that satisfies dependencies: 1
+2022-02-03 03:19:46.487: Rendering INVALID
+		- restler_static_string: 'GET '
+		- restler_static_string: '/'
+		- restler_static_string: '/'
+		- restler_static_string: 'usa'
+		- restler_static_string: '?'
+		- restler_static_string: 'last_id='
+		- restler_fuzzable_int: '1'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+2022-02-03 03:19:46.507: Generation: 1 / Sequences Collection Size: 4 
+(After directed-smoke-test Render)
+
+2022-02-03 03:19:46.512: Final Swagger spec coverage: 4 / 13
+2022-02-03 03:19:46.512: Rendered requests: 13 / 13
+2022-02-03 03:19:46.512: Rendered requests with "valid" status codes: 4 / 13
+2022-02-03 03:19:46.512: Num fully valid requests (no resource creation failures): 4
+2022-02-03 03:19:46.512: Num requests not rendered due to invalid sequence re-renders: 0
+2022-02-03 03:19:46.512: Num invalid requests caused by failed resource creations: 0
+2022-02-03 03:19:46.512: Total Creations of Dyn Objects: 0
+2022-02-03 03:19:46.512: Total Requests Sent: {'gc': 0, 'main_driver': 13}
+2022-02-03 03:19:46.512: Bug Buckets: {}
+
+Testing completed -- below are the final stats:
+
+2022-02-03 03:19:46.538: Final Swagger spec coverage: 4 / 13
+2022-02-03 03:19:46.538: Rendered requests: 13 / 13
+2022-02-03 03:19:46.538: Rendered requests with "valid" status codes: 4 / 13
+2022-02-03 03:19:46.538: Num fully valid requests (no resource creation failures): 4
+2022-02-03 03:19:46.538: Num requests not rendered due to invalid sequence re-renders: 0
+2022-02-03 03:19:46.538: Num invalid requests caused by failed resource creations: 0
+2022-02-03 03:19:46.538: Total Creations of Dyn Objects: 0
+2022-02-03 03:19:46.538: Total Requests Sent: {'gc': 0, 'main_driver': 13}
+2022-02-03 03:19:46.538: Bug Buckets: {}
