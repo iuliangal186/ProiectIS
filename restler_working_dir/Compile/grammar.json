@@ -280,7 +280,7 @@
     },
     {
       "id": {
-        "endpoint": "garbage",
+        "endpoint": "sss",
         "method": "Get"
       },
       "method": "Get",
@@ -289,7 +289,7 @@
         {
           "Constant": [
             "String",
-            "garbage"
+            "sss"
           ]
         }
       ],

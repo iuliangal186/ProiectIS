@@ -1,11 +1,11 @@
 {
   "404": {
-    "42609f44-2809-4698-bcb1-fb03e31cc0db": [
+    "690bf72b-acfe-4c73-8490-8269dea2583b": [
       {
         "request": {
           "RequestData": {
             "method": "GET",
-            "path": "/garbage",
+            "path": "/sss",
             "query": "",
             "body": ""
           }
