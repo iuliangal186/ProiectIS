@@ -1,1 +1,44 @@
-{}
+{
+  "400": {
+    "f0702226-fdd8-4073-b5b4-cce7590ec6da": [
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/usa",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "BAD REQUEST",
+            "content": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>400 Bad Request</title>\n<h1>Bad Request</h1>\n<p>The browser (or proxy) sent a request that this server could not understand.</p>\n",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      },
+      {
+        "request": {
+          "RequestData": {
+            "method": "POST",
+            "path": "/fereastra",
+            "query": "",
+            "body": ""
+          }
+        },
+        "response": {
+          "ResponseData": {
+            "code": 400,
+            "codeDescription": "BAD REQUEST",
+            "content": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>400 Bad Request</title>\n<h1>Bad Request</h1>\n<p>The browser (or proxy) sent a request that this server could not understand.</p>\n",
+            "isFailure": true,
+            "isBug": false
+          }
+        }
+      }
+    ]
+  }
+}

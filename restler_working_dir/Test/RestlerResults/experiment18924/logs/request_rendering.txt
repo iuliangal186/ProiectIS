@@ -1,0 +1,32 @@
+
+2022-02-03 03:51:52.301: Generation-1
+2022-02-03 03:51:52.301: 	Rendered requests: 13 / 13
+2022-02-03 03:51:52.301: 	Rendered requests with "valid" status codes: 11 / 13
+2022-02-03 03:51:52.301: 	Rendered requests determined to be fully valid (no resource creation failures): 11 / 13
+2022-02-03 03:51:52.301: List of failing requests:
+	Request: 1
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'fereastra'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+	Request: 10
+		- restler_static_string: 'POST '
+		- restler_static_string: ''
+		- restler_static_string: '/'
+		- restler_static_string: 'usa'
+		- restler_static_string: ' HTTP/1.1\r\n'
+		- restler_static_string: 'Accept: application/json\r\n'
+		- restler_static_string: 'Host: localhost:42178\r\n'
+		- restler_static_string: '\r\n'
+
+-------------------------
+
+
+2022-02-03 03:51:52.311: 	Never Rendered requests:
+-------------------------
+

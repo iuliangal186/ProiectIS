@@ -1,8 +1,8 @@
 {
-    "final_spec_coverage": "4 / 13",
+    "final_spec_coverage": "11 / 13",
     "rendered_requests": "13 / 13",
-    "rendered_requests_valid_status": "4 / 13",
-    "num_fully_valid": 4,
+    "rendered_requests_valid_status": "11 / 13",
+    "num_fully_valid": 11,
     "num_sequence_failures": 0,
     "num_invalid_by_failed_resource_creations": 0,
     "total_object_creations": 0,
