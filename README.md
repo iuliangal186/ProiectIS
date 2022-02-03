@@ -70,6 +70,19 @@ Pentru coverage:
 ![image](https://user-images.githubusercontent.com/25268629/152255607-d3f42968-664a-4017-8b12-00dad12a5843.png)
 
 
+## AsyncAPI
+[Specificația AsyncAPI](https://www.asyncapi.com/docs/specifications/v2.0.0) este un limbaj de specificații cuprinzător pentru descrierea API-urilor de mesagerie asincronă 
+
+Instalati generatorul de AsyncAPI:
+```sh
+npm install -g @asyncapi/generator
+```
+
+Apoi executa::
+```
+cd APIDocumentation
+ag asyncapi.yml https://github.com/asyncapi/html-template
+```
 
 
 
