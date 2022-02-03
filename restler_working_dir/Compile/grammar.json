@@ -280,7 +280,7 @@
     },
     {
       "id": {
-        "endpoint": "/temperatura",
+        "endpoint": "temperatura",
         "method": "Get"
       },
       "method": "Get",

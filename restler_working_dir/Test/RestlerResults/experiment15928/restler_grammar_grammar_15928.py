@@ -80,7 +80,7 @@ requestId="/usa"
 )
 req_collection.add_request(request)
 
-# Endpoint: /temperatura, method: Get
+# Endpoint: temperatura, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
     primitives.restler_basepath("/"),
@@ -93,7 +93,7 @@ request = requests.Request([
     primitives.restler_static_string("\r\n"),
 
 ],
-requestId="/temperatura"
+requestId="temperatura"
 )
 req_collection.add_request(request)
 
