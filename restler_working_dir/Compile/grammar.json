@@ -280,7 +280,7 @@
     },
     {
       "id": {
-        "endpoint": "temperatura",
+        "endpoint": "garbage",
         "method": "Get"
       },
       "method": "Get",
@@ -289,7 +289,7 @@
         {
           "Constant": [
             "String",
-            "temperatura"
+            "garbage"
           ]
         }
       ],

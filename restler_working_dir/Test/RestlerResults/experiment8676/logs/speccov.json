@@ -1,41 +1,4 @@
 {
-    "1503f48409dff7be1aa699a6280ca067774c77f4_1": {
-        "verb": "GET",
-        "endpoint": "temperatura",
-        "verb_endpoint": "GET temperatura",
-        "valid": 0,
-        "matching_prefix": "None",
-        "invalid_due_to_sequence_failure": 0,
-        "invalid_due_to_resource_failure": 0,
-        "invalid_due_to_parser_failure": 0,
-        "invalid_due_to_500": 0,
-        "status_code": "308",
-        "status_text": "PERMANENT REDIRECT",
-        "error_message": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/temperatura/\">http://localhost:42178/temperatura/</a>. If not click the link.",
-        "request_order": 0,
-        "sample_request": {
-            "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
-            "request_verb": "GET",
-            "request_uri": "//temperatura",
-            "request_headers": [
-                "Accept: application/json",
-                "Host: localhost:42178"
-            ],
-            "request_body": null,
-            "response_status_code": "308",
-            "response_status_text": "PERMANENT REDIRECT",
-            "response_headers": [
-                "Content-Type: text/html; charset=utf-8",
-                "Content-Length: 276",
-                "Location: http://localhost:42178/temperatura/",
-                "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
-            ],
-            "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/temperatura/\">http://localhost:42178/temperatura/</a>. If not click the link."
-        },
-        "tracked_parameters": {}
-    },
     "4717a7643c0be1c9c8b3639a72f1e318231dd1a2_1": {
         "verb": "GET",
         "endpoint": "/lumina/statistics",
@@ -49,10 +12,10 @@
         "status_code": "200",
         "status_text": "OK",
         "error_message": null,
-        "request_order": 1,
+        "request_order": 0,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//lumina/statistics?time_period=1.23",
             "request_headers": [
@@ -66,7 +29,7 @@
                 "Content-Type: application/json",
                 "Content-Length: 77",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:09 GMT"
             ],
             "response_body": "{\"data\":{\"average\":null,\"history\":[]},\"status\":\"Data succesfully retrieved\"}\n"
         },
@@ -85,10 +48,10 @@
         "status_code": "308",
         "status_text": "PERMANENT REDIRECT",
         "error_message": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/fereastra/\">http://localhost:42178/fereastra/</a>. If not click the link.",
-        "request_order": 2,
+        "request_order": 1,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "POST",
             "request_uri": "//fereastra",
             "request_headers": [
@@ -103,7 +66,7 @@
                 "Content-Length: 272",
                 "Location: http://localhost:42178/fereastra/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/fereastra/\">http://localhost:42178/fereastra/</a>. If not click the link."
         },
@@ -122,10 +85,10 @@
         "status_code": "200",
         "status_text": "OK",
         "error_message": null,
-        "request_order": 3,
+        "request_order": 2,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//miscare/statistics?time_period=1.23",
             "request_headers": [
@@ -139,7 +102,7 @@
                 "Content-Type: application/json",
                 "Content-Length: 62",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "{\"data\":{\"history\":[]},\"status\":\"Data succesfully retrieved\"}\n"
         },
@@ -158,10 +121,10 @@
         "status_code": "308",
         "status_text": "PERMANENT REDIRECT",
         "error_message": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/miscare/\">http://localhost:42178/miscare/</a>. If not click the link.",
-        "request_order": 4,
+        "request_order": 3,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//miscare",
             "request_headers": [
@@ -176,9 +139,45 @@
                 "Content-Length: 268",
                 "Location: http://localhost:42178/miscare/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/miscare/\">http://localhost:42178/miscare/</a>. If not click the link."
+        },
+        "tracked_parameters": {}
+    },
+    "908cc827a19d8577c282eac4de2eeafce8fde264_1": {
+        "verb": "GET",
+        "endpoint": "garbage",
+        "verb_endpoint": "GET garbage",
+        "valid": 0,
+        "matching_prefix": "None",
+        "invalid_due_to_sequence_failure": 0,
+        "invalid_due_to_resource_failure": 0,
+        "invalid_due_to_parser_failure": 0,
+        "invalid_due_to_500": 0,
+        "status_code": "404",
+        "status_text": "NOT FOUND",
+        "error_message": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n",
+        "request_order": 4,
+        "sample_request": {
+            "request_sent_timestamp": null,
+            "response_received_timestamp": "2022-02-03 01:11:10",
+            "request_verb": "GET",
+            "request_uri": "//garbage",
+            "request_headers": [
+                "Accept: application/json",
+                "Host: localhost:42178"
+            ],
+            "request_body": null,
+            "response_status_code": "404",
+            "response_status_text": "NOT FOUND",
+            "response_headers": [
+                "Content-Type: text/html; charset=utf-8",
+                "Content-Length: 232",
+                "Server: Werkzeug/2.0.2 Python/3.7.9",
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
+            ],
+            "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>404 Not Found</title>\n<h1>Not Found</h1>\n<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>\n"
         },
         "tracked_parameters": {}
     },
@@ -198,7 +197,7 @@
         "request_order": 5,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//lumina",
             "request_headers": [
@@ -213,7 +212,7 @@
                 "Content-Length: 266",
                 "Location: http://localhost:42178/lumina/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/lumina/\">http://localhost:42178/lumina/</a>. If not click the link."
         },
@@ -235,7 +234,7 @@
         "request_order": 6,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//umiditate",
             "request_headers": [
@@ -250,7 +249,7 @@
                 "Content-Length: 272",
                 "Location: http://localhost:42178/umiditate/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/umiditate/\">http://localhost:42178/umiditate/</a>. If not click the link."
         },
@@ -272,7 +271,7 @@
         "request_order": 7,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//vreme",
             "request_headers": [
@@ -287,7 +286,7 @@
                 "Content-Length: 264",
                 "Location: http://localhost:42178/vreme/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/vreme/\">http://localhost:42178/vreme/</a>. If not click the link."
         },
@@ -309,7 +308,7 @@
         "request_order": 8,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:55",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//umiditate/statistics?time_period=1.23",
             "request_headers": [
@@ -323,7 +322,7 @@
                 "Content-Type: application/json",
                 "Content-Length: 77",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:55 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "{\"data\":{\"average\":null,\"history\":[]},\"status\":\"Data succesfully retrieved\"}\n"
         },
@@ -345,7 +344,7 @@
         "request_order": 9,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:56",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "GET",
             "request_uri": "//temperatura/statistics?time_period=1.23",
             "request_headers": [
@@ -359,7 +358,7 @@
                 "Content-Type: application/json",
                 "Content-Length: 77",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:56 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "{\"data\":{\"average\":null,\"history\":[]},\"status\":\"Data succesfully retrieved\"}\n"
         },
@@ -381,7 +380,7 @@
         "request_order": 10,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:56",
+            "response_received_timestamp": "2022-02-03 01:11:10",
             "request_verb": "POST",
             "request_uri": "//usa",
             "request_headers": [
@@ -396,7 +395,7 @@
                 "Content-Length: 260",
                 "Location: http://localhost:42178/usa/",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:56 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:10 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/usa/\">http://localhost:42178/usa/</a>. If not click the link."
         },
@@ -418,7 +417,7 @@
         "request_order": 11,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:56",
+            "response_received_timestamp": "2022-02-03 01:11:11",
             "request_verb": "GET",
             "request_uri": "//fereastra?last_id=1",
             "request_headers": [
@@ -433,7 +432,7 @@
                 "Content-Length: 292",
                 "Location: http://localhost:42178/fereastra/?last_id=1",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:56 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:11 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/fereastra/?last_id=1\">http://localhost:42178/fereastra/?last_id=1</a>. If not click the link."
         },
@@ -455,7 +454,7 @@
         "request_order": 12,
         "sample_request": {
             "request_sent_timestamp": null,
-            "response_received_timestamp": "2022-02-03 01:05:56",
+            "response_received_timestamp": "2022-02-03 01:11:11",
             "request_verb": "GET",
             "request_uri": "//usa?last_id=1",
             "request_headers": [
@@ -470,7 +469,7 @@
                 "Content-Length: 280",
                 "Location: http://localhost:42178/usa/?last_id=1",
                 "Server: Werkzeug/2.0.2 Python/3.7.9",
-                "Date: Thu, 03 Feb 2022 01:05:56 GMT"
+                "Date: Thu, 03 Feb 2022 01:11:11 GMT"
             ],
             "response_body": "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 3.2 Final//EN\">\n<title>Redirecting...</title>\n<h1>Redirecting...</h1>\n<p>You should be redirected automatically to target URL: <a href=\"http://localhost:42178/usa/?last_id=1\">http://localhost:42178/usa/?last_id=1</a>. If not click the link."
         },
