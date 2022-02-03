@@ -36,6 +36,8 @@ components:
       properties:
         state:
           type: integer
+      required:
+        - state
     
     SensorRead:
       type: object
