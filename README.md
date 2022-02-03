@@ -35,6 +35,27 @@ Se executa prin comenzile:
 - ``py -3.7 app.py``
 - ``python app.py``
 
+
+
+## Evaluare
+ - Nota finală va fi data de două elemente: 
+   - 1 punct din oficiu
+   - 9 puncte -> programul realizat
+ - Programul trebuie să respecte următoarele cerințe (2.5p):
+   - [x] Expune un Rest API HTTP – documentat folosind Open API (Swagger)
+   - [x] Expune un API MQTT – documentat folosind AsyncAPI
+   - [x] Aplicația să aibă minim 5 funcționalități – puteți să vă gândiți la ele ca sell points ale aplicației. Depinde de aplicația pe care v-ați propus să o faceți, dar chestii de genul o funcționalitate e scăderea, o altă funcționalitate e adunarea, nu înseamnă chiar că sunt diferite
+   - [x] Tot ce faceți să se găsească într-un singur repo.
+ - Pentru puncte programul trebuie să respecte următoarele cerințe:
+   - [x] Toate funcționalitățile și/sau toate endpoints au unit teste asociate. +1.5p
+   - [x] Documentația de analiză este up to date + 1p
+   - [x] Documentația de utilizare reflectă aplicația reală + 1p
+   - [x] Să prelucreze date reale (fie că accesează un alt api pentrua prelua date, fie că descărcați un set de date pe care îl dați apoi aplicației) + 1p
+   - [x] Utilizarea unui tool de testare automată (gen RESTler) pentru a identifica buguri. +1.5p
+   - [x] Integration tests +1p
+   - [x] Coverage al testelor de 80% + 0.5p
+
+
 ## Testarea proiectului
 In path-ul `Unit Tests` sunt definite atat unit tests cat si integration tests.
 
