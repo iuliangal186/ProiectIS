@@ -12,7 +12,7 @@ import server_http
 bp = Blueprint("fereastra", __name__, url_prefix="/fereastra")
 gadget_root_topic="window/"
 
-@bp.route("/",methods=["POST"])
+@bp.route("",methods=["POST"])
 def handler_post():
     state=int(request.form['state'])
     
@@ -25,7 +25,7 @@ def handler_post():
     })
 
 
-@bp.route("/",methods=["GET"])
+@bp.route("",methods=["GET"])
 def handler_get():
     db=get_db()
     

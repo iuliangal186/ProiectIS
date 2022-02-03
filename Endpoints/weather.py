@@ -14,7 +14,7 @@ sensor_root_topic = "weather"
 bp = Blueprint("vreme", __name__, url_prefix="/vreme")
 
 
-@bp.route("/", methods=["GET"])
+@bp.route("", methods=["GET"])
 def handler_get():
     return jsonify({
         "status": "API succesfully read",

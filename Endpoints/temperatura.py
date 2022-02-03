@@ -15,7 +15,7 @@ sensor_root_topic="temperature"
 
 # No POST handler because you can only read the temperature. Perhaps make it adjustable?
 
-@bp.route("/",methods=["GET"])
+@bp.route("",methods=["GET"])
 def handler_get():
     db=get_db()
 
