@@ -58,7 +58,7 @@ npm install -g @asyncapi/generator
 ```
 
 Apoi executa::
-``
+```
 cd APIDocumentation
 ag asyncapi.yml https://github.com/asyncapi/html-template
 ```
