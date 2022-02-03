@@ -6,6 +6,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -69,7 +70,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -83,6 +84,7 @@
         "method": "Post"
       },
       "method": "Post",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -129,7 +131,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -143,6 +145,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -206,7 +209,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -220,6 +223,7 @@
         "method": "Post"
       },
       "method": "Post",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -266,7 +270,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -280,6 +284,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -326,7 +331,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -340,6 +345,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -409,7 +415,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -423,6 +429,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -469,7 +476,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -483,6 +490,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -552,7 +560,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -566,6 +574,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -612,7 +621,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -626,6 +635,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -695,7 +705,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -709,6 +719,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -755,7 +766,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -769,6 +780,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -838,7 +850,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
@@ -852,6 +864,7 @@
         "method": "Get"
       },
       "method": "Get",
+      "basePath": "/",
       "path": [
         {
           "Constant": [
@@ -898,7 +911,7 @@
         ],
         [
           "Host",
-          null
+          "localhost:42178"
         ]
       ],
       "httpVersion": "1.1",
