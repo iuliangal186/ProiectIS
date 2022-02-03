@@ -10,7 +10,7 @@ from common import root_topic
 bp = Blueprint("lumina", __name__, url_prefix="/lumina")
 sensor_root_topic="luminosity"
 
-@bp.route("/",methods=["GET"])
+@bp.route("",methods=["GET"])
 def handler_get():
     db=get_db()
 

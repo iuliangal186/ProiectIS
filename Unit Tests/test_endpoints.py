@@ -72,7 +72,7 @@ def test_root_endpoint(client):
 
 
 def test_temperature_sensor_values(client):
-    landing = client.get("/temperatura/")
+    landing = client.get("/temperatura")
     assert landing.status_code == 200
 
     data = json.loads(landing.data.decode())
@@ -114,7 +114,7 @@ def test_temperature_sensor_noparam(client):
 
 
 def test_luminosity_sensor_values(client):
-    landing = client.get("/lumina/")
+    landing = client.get("/lumina")
     assert landing.status_code == 200
 
     data = json.loads(landing.data.decode())
@@ -147,7 +147,7 @@ def test_luminosity_sensor_noparam(client):
 
 
 def test_humidity_sensor_values(client):
-    landing = client.get("/umiditate/")
+    landing = client.get("/umiditate")
     assert landing.status_code == 200
 
     data = json.loads(landing.data.decode())
@@ -180,7 +180,7 @@ def test_humidity_sensor_noparam(client):
 
 
 def test_motion_sensor_values(client):
-    landing = client.get("/miscare/")
+    landing = client.get("/miscare")
     assert landing.status_code == 200
 
     data = json.loads(landing.data.decode())
@@ -216,7 +216,7 @@ def test_motion_sensor_noparam(client):
 
 def test_gadget_window_values(client):
     # Test if requesting a large id will result in error
-    landing = client.get("/fereastra/?last_id=1000")
+    landing = client.get("/fereastra?last_id=1000")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -233,7 +233,7 @@ def test_gadget_window_values(client):
     print(last_event_id)
 
     # Test if a request to the last id generates an no-new-events error
-    landing = client.get(f"/fereastra/?last_id={last_event_id}")
+    landing = client.get(f"/fereastra?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -241,18 +241,18 @@ def test_gadget_window_values(client):
 
 def test_gadget_window_noparam(client):
     # Test if a missing param will result in error
-    landing = client.get("/fereastra/")
+    landing = client.get("/fereastra")
     assert landing.status_code == 400, "Page should return bad request"
 def test_gadget_window_noparam(client):
     # Test if a missing param will result in error
-    landing = client.post("/fereastra/")
+    landing = client.post("/fereastra")
     assert landing.status_code == 400, "Page should return bad request"
 
 
 
 def test_gadget_door_values(client):
     # Test if requesting a large id will result in error
-    landing = client.get("/usa/?last_id=1000")
+    landing = client.get("/usa?last_id=1000")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -269,7 +269,7 @@ def test_gadget_door_values(client):
     print(last_event_id)
 
     # Test if a request to the last id generates an no-new-events error
-    landing = client.get(f"/usa/?last_id={last_event_id}")
+    landing = client.get(f"/usa?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -278,16 +278,16 @@ def test_gadget_door_values(client):
 
 def test_gadget_door_noparam(client):
     # Test if a missing param will result in error
-    landing = client.get("/fereastra/")
+    landing = client.get("/fereastra")
     assert landing.status_code == 400, "Page should return bad request"
 def test_gadget_door_noparam2(client):
     # Test if a missing param will result in error
-    landing = client.post("/fereastra/")
+    landing = client.post("/fereastra")
     assert landing.status_code == 400, "Page should return bad request"
 
 def test_weather_values(client):
     # Test if returned values are normal
-    landing = client.get("/vreme/")
+    landing = client.get("/vreme")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -297,7 +297,7 @@ def test_weather_values(client):
 
 
 def test_weather_values_2(client):
-    landing = client.get("/vreme/")
+    landing = client.get("/vreme")
     response = json.loads(landing.data.decode())
 
     assert response is not None
@@ -308,7 +308,7 @@ def test_weather_values_2(client):
 
 def test_weather_average_pressure(client):
     # Normal pressure values should be i around 1013 mb
-    landing = client.get("/vreme/")
+    landing = client.get("/vreme")
     response = json.loads(landing.data.decode())
 
     assert response is not None
@@ -332,7 +332,7 @@ def test_gadgetwindow_and_mqtt(client, mqtt_window, mqtt_server):
     print(last_event_id)
 
     # Try and trigger a state change in the gadget
-    landing = client.get(f"/fereastra/?last_id={last_event_id}")
+    landing = client.get(f"/fereastra?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -340,7 +340,7 @@ def test_gadgetwindow_and_mqtt(client, mqtt_window, mqtt_server):
     sleep(2)
 
     # Test if the last request triggered a new event
-    landing = client.get(f"/fereastra/?last_id={last_event_id}")
+    landing = client.get(f"/fereastra?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -354,7 +354,7 @@ def test_gadgetwindow_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)  # Wait for the previous test to complete(and for the mqtt to respond)...yeah this is called testing
     
     # Try and change gadget state to OPENED
-    landing = client.post(f"/fereastra/",data=dict(state=1))
+    landing = client.post(f"/fereastra",data=dict(state=1))
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Command was queued" in data["status"]
@@ -363,14 +363,14 @@ def test_gadgetwindow_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)
 
     # Observe the change in http client
-    landing = client.get(f"/fereastra/?last_id=0")
+    landing = client.get(f"/fereastra?last_id=0")
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]
     assert data["data"]["state"]=="OPENED"
 
     # Try and change gadget state to CLOSED
-    landing = client.post(f"/fereastra/",data=dict(state=0))
+    landing = client.post(f"/fereastra",data=dict(state=0))
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Command was queued" in data["status"]
@@ -379,7 +379,7 @@ def test_gadgetwindow_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)
 
     # Observe the change in http client
-    landing = client.get(f"/fereastra/?last_id=0")
+    landing = client.get(f"/fereastra?last_id=0")
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]
@@ -402,7 +402,7 @@ def test_gadgetdoor_and_mqtt(client, mqtt_door, mqtt_server):
     print(last_event_id)
 
     # Try and trigger a state change in the gadget
-    landing = client.get(f"/usa/?last_id={last_event_id}")
+    landing = client.get(f"/usa?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -410,7 +410,7 @@ def test_gadgetdoor_and_mqtt(client, mqtt_door, mqtt_server):
     sleep(2)
 
     # Test if the last request triggered a new event
-    landing = client.get(f"/usa/?last_id={last_event_id}")
+    landing = client.get(f"/usa?last_id={last_event_id}")
     assert landing.status_code == 200, "Page should return success"
 
     data = json.loads(landing.data.decode())
@@ -424,7 +424,7 @@ def test_gadgetdoor_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)  # Wait for the previous test to complete(and for the mqtt to respond)...yeah this is called testing
     
     # Try and change gadget state to OPENED
-    landing = client.post(f"/usa/",data=dict(state=1))
+    landing = client.post(f"/usa",data=dict(state=1))
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Command was queued" in data["status"]
@@ -433,14 +433,14 @@ def test_gadgetdoor_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)
 
     # Observe the change in http client
-    landing = client.get(f"/usa/?last_id=0")
+    landing = client.get(f"/usa?last_id=0")
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]
     assert data["data"]["state"]=="OPENED"
 
     # Try and change gadget state to CLOSED
-    landing = client.post(f"/usa/",data=dict(state=0))
+    landing = client.post(f"/usa",data=dict(state=0))
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Command was queued" in data["status"]
@@ -449,7 +449,7 @@ def test_gadgetdoor_and_mqtt2(client, mqtt_window, mqtt_server):
     sleep(2)
 
     # Observe the change in http client
-    landing = client.get(f"/usa/?last_id=0")
+    landing = client.get(f"/usa?last_id=0")
     assert landing.status_code == 200, "Page should return success"
     data = json.loads(landing.data.decode())
     assert "Event succesfully retrieved" in data["status"]

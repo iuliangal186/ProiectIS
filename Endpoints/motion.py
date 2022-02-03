@@ -13,7 +13,7 @@ bp = Blueprint("miscare", __name__, url_prefix="/miscare")
 sensor_root_topic = "motion"
 
 
-@bp.route("/", methods=["GET"])
+@bp.route("", methods=["GET"])
 def handler_get():
     db = get_db()
 
