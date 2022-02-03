@@ -2,6 +2,10 @@ openapi: 3.0.0
 info:
   title: SeraSmart
   version: 1.0.0
+
+servers:
+- url: http://localhost:42178/
+  description: Localhost
   
 components:
   # Reusable schemas (data models)

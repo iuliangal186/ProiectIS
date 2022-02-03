@@ -5,7 +5,7 @@ info:
 
 servers:
   test:
-    url: localhost:42178
+    url: tcp://localhost:42178
     protocol: mqtt 
     description: Mqtt endpoint
 
