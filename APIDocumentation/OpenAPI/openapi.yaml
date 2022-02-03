@@ -166,7 +166,7 @@ components:
           
   
 paths:
-  /fereastra:
+  /fereastra/:
     get:
       description: Ia starea ferestrei 
       parameters:
@@ -201,7 +201,7 @@ paths:
               schema: 
                 $ref: '#/components/schemas/GadgetWriteResponse'
                 
-  /usa:
+  /usa/:
     get:
       description: Ia starea usii 
       parameters:
@@ -237,7 +237,7 @@ paths:
                 $ref: '#/components/schemas/GadgetWriteResponse'
                 
                 
-  /temperatura:
+  /temperatura/:
     get:
       description: Ia valoarea curenta a sensorului 
       responses:
@@ -268,7 +268,7 @@ paths:
                 $ref: '#/components/schemas/ReferencedSensorStats'
                 
                 
-  /lumina:
+  /lumina/:
     get:
       description: Ia valoarea curenta a sensorului 
       responses:
@@ -298,7 +298,7 @@ paths:
               schema: 
                 $ref: '#/components/schemas/SensorStats'
 
-  /umiditate:
+  /umiditate/:
     get:
       description: Ia valoarea curenta a sensorului 
       responses:
@@ -328,7 +328,7 @@ paths:
               schema: 
                 $ref: '#/components/schemas/SensorStats'
 
-  /miscare:
+  /miscare/:
     get:
       description: Ia valoarea curenta a sensorului
       responses:
@@ -358,7 +358,7 @@ paths:
                 $ref: '#/components/schemas/MotionSensorStats'
                 
                 
-  /vreme:
+  /vreme/:
     get:
       description: Preia vremea curenta ca o referinta
       responses:
