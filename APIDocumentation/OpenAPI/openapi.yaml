@@ -237,7 +237,7 @@ paths:
                 $ref: '#/components/schemas/GadgetWriteResponse'
                 
                 
-  garbage//:
+  /temperatura/:
     get:
       description: Ia valoarea curenta a sensorului 
       responses:
