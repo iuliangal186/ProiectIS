@@ -1,10 +1,6 @@
 {
-  "failedRequestsCount": 4,
-  "bugCount": 4,
-  "codeCounts": {
-    "500": 4
-  },
-  "errorBuckets": {
-    "(500, 5aad48e8-60cc-44c9-bcf6-21fe2d184b48)": 4
-  }
+  "failedRequestsCount": 0,
+  "bugCount": 0,
+  "codeCounts": {},
+  "errorBuckets": {}
 }

@@ -1,12 +1,12 @@
 
-2022-02-03 02:37:52.710: Generation-1
-2022-02-03 02:37:52.710: 	Rendered requests: 13 / 13
-2022-02-03 02:37:52.710: 	Rendered requests with "valid" status codes: 2 / 13
-2022-02-03 02:37:52.710: 	Rendered requests determined to be fully valid (no resource creation failures): 2 / 13
-2022-02-03 02:37:52.710: List of failing requests:
+2022-02-03 03:33:28.540: Generation-1
+2022-02-03 03:33:28.540: 	Rendered requests: 13 / 13
+2022-02-03 03:33:28.540: 	Rendered requests with "valid" status codes: 4 / 13
+2022-02-03 03:33:28.540: 	Rendered requests determined to be fully valid (no resource creation failures): 4 / 13
+2022-02-03 03:33:28.540: List of failing requests:
 	Request: 1
 		- restler_static_string: 'POST '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'fereastra'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -14,24 +14,9 @@
 		- restler_static_string: 'Host: localhost:42178\r\n'
 		- restler_static_string: '\r\n'
 
-	Request: 2
-		- restler_static_string: 'GET '
-		- restler_static_string: '/'
-		- restler_static_string: '/'
-		- restler_static_string: 'miscare'
-		- restler_static_string: '/'
-		- restler_static_string: 'statistics'
-		- restler_static_string: '?'
-		- restler_static_string: 'time_period='
-		- restler_fuzzable_number: '1.23'
-		- restler_static_string: ' HTTP/1.1\r\n'
-		- restler_static_string: 'Accept: application/json\r\n'
-		- restler_static_string: 'Host: localhost:42178\r\n'
-		- restler_static_string: '\r\n'
-
 	Request: 3
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'temperatura'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -41,7 +26,7 @@
 
 	Request: 4
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'miscare'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -51,7 +36,7 @@
 
 	Request: 5
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'lumina'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -61,7 +46,7 @@
 
 	Request: 6
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'umiditate'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -71,7 +56,7 @@
 
 	Request: 7
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'vreme'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -79,24 +64,9 @@
 		- restler_static_string: 'Host: localhost:42178\r\n'
 		- restler_static_string: '\r\n'
 
-	Request: 9
-		- restler_static_string: 'GET '
-		- restler_static_string: '/'
-		- restler_static_string: '/'
-		- restler_static_string: 'temperatura'
-		- restler_static_string: '/'
-		- restler_static_string: 'statistics'
-		- restler_static_string: '?'
-		- restler_static_string: 'time_period='
-		- restler_fuzzable_number: '1.23'
-		- restler_static_string: ' HTTP/1.1\r\n'
-		- restler_static_string: 'Accept: application/json\r\n'
-		- restler_static_string: 'Host: localhost:42178\r\n'
-		- restler_static_string: '\r\n'
-
 	Request: 10
 		- restler_static_string: 'POST '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'usa'
 		- restler_static_string: ' HTTP/1.1\r\n'
@@ -106,7 +76,7 @@
 
 	Request: 11
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'fereastra'
 		- restler_static_string: '?'
@@ -119,7 +89,7 @@
 
 	Request: 12
 		- restler_static_string: 'GET '
-		- restler_static_string: '/'
+		- restler_static_string: ''
 		- restler_static_string: '/'
 		- restler_static_string: 'usa'
 		- restler_static_string: '?'
@@ -133,6 +103,6 @@
 -------------------------
 
 
-2022-02-03 02:37:52.719: 	Never Rendered requests:
+2022-02-03 03:33:28.558: 	Never Rendered requests:
 -------------------------
 

@@ -9,7 +9,7 @@ req_collection = requests.RequestCollection([])
 # Endpoint: /fereastra, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("fereastra"),
     primitives.restler_static_string("?"),
@@ -29,7 +29,7 @@ req_collection.add_request(request)
 # Endpoint: /fereastra, method: Post
 request = requests.Request([
     primitives.restler_static_string("POST "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("fereastra"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -46,7 +46,7 @@ req_collection.add_request(request)
 # Endpoint: /usa, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("usa"),
     primitives.restler_static_string("?"),
@@ -66,7 +66,7 @@ req_collection.add_request(request)
 # Endpoint: /usa, method: Post
 request = requests.Request([
     primitives.restler_static_string("POST "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("usa"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -83,7 +83,7 @@ req_collection.add_request(request)
 # Endpoint: /temperatura, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("temperatura"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -100,7 +100,7 @@ req_collection.add_request(request)
 # Endpoint: /temperatura/statistics, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("temperatura"),
     primitives.restler_static_string("/"),
@@ -122,7 +122,7 @@ req_collection.add_request(request)
 # Endpoint: /lumina, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("lumina"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -139,7 +139,7 @@ req_collection.add_request(request)
 # Endpoint: /lumina/statistics, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("lumina"),
     primitives.restler_static_string("/"),
@@ -161,7 +161,7 @@ req_collection.add_request(request)
 # Endpoint: /umiditate, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("umiditate"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -178,7 +178,7 @@ req_collection.add_request(request)
 # Endpoint: /umiditate/statistics, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("umiditate"),
     primitives.restler_static_string("/"),
@@ -200,7 +200,7 @@ req_collection.add_request(request)
 # Endpoint: /miscare, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("miscare"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
@@ -217,7 +217,7 @@ req_collection.add_request(request)
 # Endpoint: /miscare/statistics, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("miscare"),
     primitives.restler_static_string("/"),
@@ -239,7 +239,7 @@ req_collection.add_request(request)
 # Endpoint: /vreme, method: Get
 request = requests.Request([
     primitives.restler_static_string("GET "),
-    primitives.restler_basepath("/"),
+    primitives.restler_basepath(""),
     primitives.restler_static_string("/"),
     primitives.restler_static_string("vreme"),
     primitives.restler_static_string(" HTTP/1.1\r\n"),
